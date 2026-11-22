@@ -29,10 +29,17 @@ OUT = os.path.dirname(os.path.abspath(__file__))
 IMG_DIR = os.path.join(OUT, "img")
 EXTRA_ALBUM = os.path.join(OUT, "extra-album.json")
 VIDEOS_JSON = os.path.join(OUT, "videos.json")
+DRIVE_JSON = os.path.join(OUT, "drive-uploads.json")
+SPECIALS_JSON = os.path.join(OUT, "specials.json")
+AUDIO_DIR = os.path.join(OUT, "audio")
 
 ISSUE_RE = re.compile(r"^### 第(\d+)期 · (\d{4}-\d{2}-\d{2}) · (.+?)\s*$")
 PAST_RE = re.compile(r"^### 往期")
 PHOTO_RE = re.compile(r"^- (.+?)：`([^`]+)`。配文：(.+)$")
+EXTRA_PHOTO_RE = re.compile(r"^- 当日其他照片：(.+?) — `([^`]+)`。配文：(.+)$")
+EXTRA_VIDEO_RE = re.compile(r"^- 当日其他视频：(.+?) — `([^`]+)` — (.+)$")
+EXTRA_VOICE_RE = re.compile(r"^- 当日其他语音：(.+?) — `([^`]+)` — (.+)$")
+EXTRA_NOTE_RE = re.compile(r"^- 当日其他注：(.+)$")
 XINDE_RE = re.compile(r"^- 心得：(.+)$")
 BEIZHU_RE = re.compile(r"^- 备注：(.+)$")
 PAST_BULLET_RE = re.compile(r"^- (\d{4}-\d{2}-\d{2}) · (.+)$")
@@ -49,6 +56,8 @@ def parse_journal(text):
         if m:
             cur = ("issue", {"n": int(m.group(1)), "date": m.group(2),
                              "theme": m.group(3).strip(), "photos": [],
+                             "extras_photos": [], "extras_videos": [],
+                             "extras_voice": [], "extras_note": "",
                              "xinde": "", "beizhu": ""})
             issues.append(cur[1])
             continue
@@ -62,6 +71,28 @@ def parse_journal(text):
             continue
         if cur[0] == "issue":
             iss = cur[1]
+            m = EXTRA_PHOTO_RE.match(line)
+            if m:
+                iss["extras_photos"].append({"title": m.group(1).strip(),
+                                             "src": m.group(2).strip(),
+                                             "caption": m.group(3).strip()})
+                continue
+            m = EXTRA_VIDEO_RE.match(line)
+            if m:
+                iss["extras_videos"].append({"title": m.group(1).strip(),
+                                             "src": m.group(2).strip(),
+                                             "duration": m.group(3).strip()})
+                continue
+            m = EXTRA_VOICE_RE.match(line)
+            if m:
+                iss["extras_voice"].append({"title": m.group(1).strip(),
+                                           "src": m.group(2).strip(),
+                                           "duration": m.group(3).strip()})
+                continue
+            m = EXTRA_NOTE_RE.match(line)
+            if m:
+                iss["extras_note"] = m.group(1).strip()
+                continue
             m = PHOTO_RE.match(line)
             if m:
                 iss["photos"].append({"title": m.group(1).strip(),
@@ -99,14 +130,23 @@ def parse_journal(text):
     return issues, past
 
 
-def collect_images(issues, past, extra=None):
+def collect_images(issues, past, extra=None, specials=None):
     by_base = {}
     for iss in issues:
-        for ph in iss["photos"]:
+        for ph in iss["photos"] + iss["extras_photos"]:
             base = os.path.basename(ph["src"])
             if base in by_base and by_base[base] != ph["src"]:
                 raise ValueError("同名不同图: " + base)
             by_base[base] = ph["src"]
+    for sp in (specials or []):
+        for vol in sp.get("volumes", []):
+            for item in vol.get("items", []):
+                if item.get("kind") != "photo" or not item.get("src"):
+                    continue
+                base = os.path.basename(item["src"])
+                if base in by_base and by_base[base] != item["src"]:
+                    raise ValueError("同名不同图: " + base)
+                by_base[base] = item["src"]
     for item in past:
         for ph in item["photos"]:
             base = os.path.basename(ph["src"])
@@ -170,6 +210,90 @@ def load_videos():
         if not os.path.exists(full):
             raise ValueError("videos.json[%d] 视频不存在: %s" % (i, item["path"]))
     return data
+
+
+def load_drive():
+    """Drive 播放链接：文件名 -> webViewLink。
+
+    先读 videos.json 里每条自带的 drive，再补 drive-uploads.json 的
+    entries（path -> webViewLink）。两个文件缺一个也不报错。
+    """
+    by_base = {}
+    try:
+        with open(VIDEOS_JSON, encoding="utf-8") as f:
+            videos = json.load(f)
+        for v in videos:
+            if v.get("drive"):
+                by_base[os.path.basename(v["path"])] = v["drive"]
+    except (OSError, ValueError):
+        pass
+    try:
+        with open(DRIVE_JSON, encoding="utf-8") as f:
+            data = json.load(f)
+        for e in data.get("entries", []):
+            if e.get("webViewLink") and e.get("path"):
+                by_base.setdefault(os.path.basename(e["path"]), e["webViewLink"])
+    except (OSError, ValueError, AttributeError):
+        pass
+    return by_base
+
+
+def load_specials():
+    """存档特辑（见 specials.json，周日由日期刊任务写入）。
+
+    缺文件表示还没有特辑，返回 []。每期需要 n/title/date_range/
+    intro/footer/volumes；每卷需要 title/items；每件 kind 为 photo
+    或 video，photo 需要 title/date/src/caption，video 需要
+    title/date/src/duration（drive 可空，缺省时按文件名查
+    load_drive 的结果）。
+    """
+    if not os.path.exists(SPECIALS_JSON):
+        return []
+    with open(SPECIALS_JSON, encoding="utf-8") as f:
+        data = json.load(f)
+    if not isinstance(data, list):
+        raise ValueError("specials.json must be a list")
+    for i, sp in enumerate(data):
+        for key in ("n", "title", "date_range", "intro", "footer", "volumes"):
+            if not sp.get(key):
+                raise ValueError("specials.json[%d] missing %s" % (i, key))
+        for j, vol in enumerate(sp["volumes"]):
+            if not vol.get("title") or not isinstance(vol.get("items"), list):
+                raise ValueError("specials.json[%d] volume %d bad" % (i, j))
+            for k, item in enumerate(vol["items"]):
+                if item.get("kind") == "photo":
+                    for key in ("title", "date", "src", "caption"):
+                        if not item.get(key):
+                            raise ValueError("specials.json[%d] item %d missing %s" % (i, k, key))
+                elif item.get("kind") == "video":
+                    for key in ("title", "date", "src", "duration"):
+                        if not item.get(key):
+                            raise ValueError("specials.json[%d] item %d missing %s" % (i, k, key))
+                else:
+                    raise ValueError("specials.json[%d] item %d bad kind" % (i, k))
+    return data
+
+
+def collect_audio(issues):
+    by_base = {}
+    for iss in issues:
+        for a in iss["extras_voice"]:
+            base = os.path.basename(a["src"])
+            if base in by_base and by_base[base] != a["src"]:
+                raise ValueError("同名不同音频: " + base)
+            by_base[base] = a["src"]
+    return by_base
+
+
+def copy_audio(by_base):
+    os.makedirs(AUDIO_DIR, exist_ok=True)
+    for base, src in sorted(by_base.items()):
+        src_path = os.path.expanduser(src)
+        if not os.path.exists(src_path):
+            raise ValueError("音频不存在: " + src)
+        dst = os.path.join(AUDIO_DIR, base)
+        if not os.path.exists(dst) or sha256_file(dst) != sha256_file(src_path):
+            shutil.copyfile(src_path, dst)
 
 
 def sha256_file(path):
@@ -272,7 +396,7 @@ def figure(img_rel, title, date, caption):
     return out
 
 
-def issue_page(iss, prev_n, next_n, css):
+def issue_page(iss, prev_n, next_n, css, drive_by_base=None):
     # 卷的样子：标题合一、每图带日期戳、心得作卷尾结语（照初版专辑）。
     figs = []
     for ph in iss["photos"]:
@@ -281,6 +405,31 @@ def issue_page(iss, prev_n, next_n, css):
     body = nav_home()
     body += '<header><h1>第 ' + str(iss["n"]) + ' 期 · ' + esc(iss["theme"]) + '</h1></header>\n'
     body += '<div class="grid">\n' + "\n".join(figs) + '\n</div>\n'
+    if iss["extras_photos"]:
+        body += '<h2>当日其他照片</h2>\n<div class="grid">\n'
+        for ph in iss["extras_photos"]:
+            base = os.path.basename(ph["src"])
+            body += figure("../img/" + base, ph["title"], iss["date"], ph["caption"]) + '\n'
+        body += '</div>\n'
+    if iss["extras_videos"]:
+        body += '<h2>当日视频</h2>\n'
+        for v in iss["extras_videos"]:
+            base = os.path.basename(v["src"])
+            thumb = "../img/thumb/" + os.path.splitext(base)[0] + ".jpg"
+            drive = (drive_by_base or {}).get(base, "")
+            link = (' <a class="play" href="' + esc(drive) + '" target="_blank" rel="noopener">▶ 播放</a>') if drive else ''
+            body += ('<div class="vrow"><img class="thumb" src="' + esc(thumb) + '" alt="" loading="lazy">'
+                     '<span class="t">' + esc(v["title"]) + '</span>' + link +
+                     '<span class="d">' + esc(iss["date"]) + ' · ' + esc(v["duration"]) + '</span></div>\n')
+    if iss["extras_voice"]:
+        body += '<h2>当日语音</h2>\n'
+        for a in iss["extras_voice"]:
+            base = os.path.basename(a["src"])
+            body += ('<div class="vrow"><audio controls preload="none" src="../audio/' + esc(base) + '"></audio>'
+                     '<span class="t">' + esc(a["title"]) + '</span>'
+                     '<span class="d">' + esc(iss["date"]) + ' · ' + esc(a["duration"]) + '</span></div>\n')
+    if iss["extras_note"]:
+        body += '<div class="note"><span class="lab">当日其他</span>' + esc(iss["extras_note"]) + '</div>\n'
     if iss["beizhu"]:
         body += '<div class="note"><span class="lab">备 注</span>' + esc(iss["beizhu"]) + '</div>\n'
     body += '<footer>' + esc(iss["xinde"]) + '<br><br>—— muse酱 · ' + esc(iss["date"]) + '</footer>\n'
@@ -337,7 +486,7 @@ def album_page(past, issues, css, extra=None):
             figs.append(fig)
     for iss in issues:
         cat = issue_category(iss["theme"])
-        for ph in iss["photos"]:
+        for ph in iss["photos"] + iss["extras_photos"]:
             base = os.path.basename(ph["src"])
             fig = figure("../img/" + base, ph["title"], iss["date"], ph["caption"])
             fig = fig.replace("<figure>", '<figure data-cat="' + cat + '">', 1)
@@ -391,7 +540,7 @@ def videos_page(videos, css):
     return page("视频存档", body, css)
 
 
-def index_page(issues, past, css, extra=None, videos=None):
+def index_page(issues, past, css, extra=None, videos=None, specials=None):
     latest = issues[-1]
     first = latest["photos"][0]
     base = os.path.basename(first["src"])
@@ -410,6 +559,12 @@ def index_page(issues, past, css, extra=None, videos=None):
     body += '<span class="d">' + esc(latest["date"]) + '</span>'
     body += '<p>' + esc(first["caption"]) + '</p></figcaption></figure>\n'
     body += '<h2>期刊目录</h2>\n<div class="toc">\n' + "\n".join(toc_lines) + '\n</div>\n'
+    if specials:
+        body += '<h2>存档特辑</h2>\n<div class="toc">\n'
+        for sp in reversed(specials):
+            body += ('<a href="assets/' + special_filename(sp["n"]) + '">' + esc(sp["title"]) + '</a>'
+                     '<span class="d">' + esc(sp["date_range"]) + '</span><br>\n')
+        body += '</div>\n'
     d0, d1 = album_date_range(past, issues, extra)
     body += '<h2>日常相册</h2>\n<div class="toc"><a href="album/日常相册.html">日常相册 · 往期</a>'
     body += '<span class="d">' + esc(d0) + ' → ' + esc(d1) + '</span></div>\n'
@@ -448,6 +603,44 @@ def v1_index(vols, intro, footer, css):
     return page("第一版专辑", body, css)
 
 
+def special_filename(n):
+    return "special-%03d.html" % n
+
+
+def special_page(sp, prev_n, next_n, css, drive_by_base=None):
+    body = nav_home()
+    body += '<header><h1>' + esc(sp["title"]) + '</h1></header>\n'
+    body += '<div class="intro">' + esc(sp["intro"]) + '</div>\n'
+    for vol in sp["volumes"]:
+        body += '<h2>' + esc(vol["title"]) + '</h2>\n'
+        figs = []
+        vrows = []
+        for item in vol["items"]:
+            if item["kind"] == "photo":
+                base = os.path.basename(item["src"])
+                figs.append(figure("../img/" + base, item["title"], item["date"], item["caption"]))
+            else:
+                base = os.path.basename(item["src"])
+                thumb = "../img/thumb/" + os.path.splitext(base)[0] + ".jpg"
+                drive = item.get("drive") or (drive_by_base or {}).get(base, "")
+                link = (' <a class="play" href="' + esc(drive) + '" target="_blank" rel="noopener">▶ 播放</a>') if drive else ''
+                vrows.append(('<div class="vrow"><img class="thumb" src="' + esc(thumb) + '" alt="" loading="lazy">'
+                              '<span class="t">' + esc(item["title"]) + '</span>' + link +
+                              '<span class="d">' + esc(item["date"]) + ' · ' + esc(item["duration"]) + '</span></div>'))
+        if figs:
+            body += '<div class="grid">\n' + "\n".join(figs) + '\n</div>\n'
+        body += "\n".join(vrows)
+        if vrows:
+            body += '\n'
+    body += '<footer>' + esc(sp["footer"]) + '</footer>\n'
+    prev_link = ('<a href="' + special_filename(prev_n) + '">← 上一期特辑</a>'
+                 if prev_n else '<span class="none">← 上一期特辑</span>')
+    next_link = ('<a href="' + special_filename(next_n) + '">下一期特辑 →</a>'
+                 if next_n else '<span class="none">下一期特辑 →</span>')
+    body += '<div class="pager">' + prev_link + next_link + '</div>\n'
+    return page(sp["title"], body, css)
+
+
 def v1_volume_page(vol, prev_v, next_v, css):
     body = '<div class="nav"><a href="初版.html">回初版</a><a href="../index.html">回首页</a><a href="../prompts.html">提示词</a></div>\n'
     body += '<header><h1>' + esc(vol["title"]) + '</h1></header>\n'
@@ -476,25 +669,35 @@ def main():
             raise ValueError("往期缺少照片或心得: " + item["title"])
     extra = load_extra()
     videos = load_videos()
-    by_base = collect_images(issues, past, extra)
+    specials = load_specials()
+    drive_by_base = load_drive()
+    by_base = collect_images(issues, past, extra, specials)
     copy_images(by_base)
+    audio_by_base = collect_audio(issues)
+    copy_audio(audio_by_base)
     with open(V1_SRC, encoding="utf-8") as f:
         v1_src = f.read()
     v1_css, intro, footer, vols = parse_v1(v1_src)
     css = v1_css + EXTRA_CSS
-    # clean stale issue pages
+    # clean stale issue + special pages
     assets_dir = os.path.join(OUT, "assets")
     os.makedirs(assets_dir, exist_ok=True)
     for name in os.listdir(assets_dir):
-        if name.startswith("issue-") and name.endswith(".html"):
+        if (name.startswith("issue-") or name.startswith("special-")) and name.endswith(".html"):
             os.remove(os.path.join(assets_dir, name))
     # index + issues
-    write(os.path.join(OUT, "index.html"), index_page(issues, past, css, extra, videos))
+    write(os.path.join(OUT, "index.html"), index_page(issues, past, css, extra, videos, specials))
     for i, iss in enumerate(issues):
         prev_n = issues[i - 1]["n"] if i > 0 else None
         next_n = issues[i + 1]["n"] if i + 1 < len(issues) else None
         write(os.path.join(assets_dir, issue_filename(iss["n"])),
-              issue_page(iss, prev_n, next_n, css))
+              issue_page(iss, prev_n, next_n, css, drive_by_base))
+    # specials
+    for i, sp in enumerate(specials):
+        prev_n = specials[i - 1]["n"] if i > 0 else None
+        next_n = specials[i + 1]["n"] if i + 1 < len(specials) else None
+        write(os.path.join(assets_dir, special_filename(sp["n"])),
+              special_page(sp, prev_n, next_n, css, drive_by_base))
     # album
     write(os.path.join(OUT, "album", "日常相册.html"), album_page(past, issues, css, extra))
     # videos
@@ -508,9 +711,15 @@ def main():
         write(os.path.join(v1_dir, vol_filename(vol["title"])),
               v1_volume_page(vol, prev_v, next_v, css))
     n_photos = sum(len(item["photos"]) for item in past)
+    n_extras = sum(len(iss["extras_photos"]) for iss in issues)
     print("issues: %d (latest #%d %s)" % (len(issues), issues[-1]["n"], issues[-1]["theme"]))
     print("past photos: %d in %d entries" % (n_photos, len(past)))
-    n_album = n_photos + sum(len(iss["photos"]) for iss in issues) + len(extra)
+    print("extras photos: %d, extras videos: %d, extras voice: %d" % (
+        n_extras, sum(len(iss["extras_videos"]) for iss in issues),
+        sum(len(iss["extras_voice"]) for iss in issues)))
+    n_album = n_photos + sum(len(iss["photos"]) for iss in issues) + n_extras + len(extra)
+    print("specials: %d" % len(specials))
+    print("audio copied: %d" % len(audio_by_base))
     ad0, ad1 = album_date_range(past, issues, extra)
     print("album photos: %d (%s → %s)" % (n_album, ad0, ad1))
     print("extra photos: %d" % len(extra))
