@@ -1,0 +1,352 @@
+[
+  {
+    "title": "拆书第 1 集《乌合之众》试跑片",
+    "date": "2026-11-11",
+    "duration": "1 分 54 秒",
+    "file": "chaishu-test/chaishu-ep1-test-20261111.mp4",
+    "drive": "https://drive.google.com/file/d/1lfY529oE7zRsPsuIcveKYsLEVXv5XhC_/view?usp=drivesdk",
+    "prompt": null,
+    "status": "pending",
+    "note": "试跑片为氛围图慢推镜加配音加字幕合成，未找到视频生成提示词原文。"
+  },
+  {
+    "title": "老年故事会第 1 集 v2（Zephyr 童声）",
+    "date": "2026-11-15",
+    "duration": "4 分 5 秒",
+    "file": "your_files/elderly-story-ep01-grandpas-radio-v2-zephyr.mp4",
+    "drive": "https://drive.google.com/file/d/18hy_qRCENzVDWhxboG4tgp7cHsTBw5Gm/view?usp=drivesdk",
+    "prompt": null,
+    "status": "pending",
+    "note": "重配版，仍为静态插画慢推拉加旁白配音加字幕合成，无视频生成提示词原文。"
+  },
+  {
+    "title": "老年故事会第 1 集《爷爷的旧收音机》",
+    "date": "2026-11-15",
+    "duration": "4 分 10 秒",
+    "file": "your_files/elderly-story-ep01-grandpas-radio.mp4",
+    "drive": "https://drive.google.com/file/d/1a-W4UAEeJYesfq6D0cs3u2AwUDsfvzUq/view?usp=drivesdk",
+    "prompt": null,
+    "status": "pending",
+    "note": "静态 AI 插画慢推拉加旁白配音加字幕合成，无视频生成提示词原文。"
+  },
+  {
+    "title": "老年故事会第 2 集《老五的年夜饭》",
+    "date": "2026-11-16",
+    "duration": "3 分 47 秒",
+    "file": "your_files/elderly-story-ep02-laowu-nianyefan-zephyr.mp4",
+    "drive": "https://drive.google.com/file/d/1RYWmZ_PWOgTNUxS3_O3UZBMoe2uWIm4Q/view?usp=drivesdk",
+    "prompt": null,
+    "status": "pending",
+    "note": "静态 AI 插画慢推拉加旁白配音加字幕合成，无视频生成提示词原文。"
+  },
+  {
+    "title": "老年故事会第 3 集《奶奶的缝纫机》",
+    "date": "2026-11-17",
+    "duration": "4 分 0 秒",
+    "file": "your_files/elderly-story-ep03-nainai-fengrenji-zephyr.mp4",
+    "drive": "https://drive.google.com/file/d/1OAtxwE3eQfbjbcPCeuPIekeQB83NsigJ/view?usp=drivesdk",
+    "prompt": null,
+    "status": "pending",
+    "note": "静态 AI 插画慢推拉加旁白配音加字幕合成，无视频生成提示词原文。"
+  },
+  {
+    "title": "老年故事会第 4 集《爸爸的旧自行车》",
+    "date": "2026-11-18",
+    "duration": "3 分 52 秒",
+    "file": "your_files/elderly-story-ep04-baba-jiu-zixingche-zephyr.mp4",
+    "drive": "https://drive.google.com/file/d/1Hx6JW0fpSPzqOn7RqvpEeBGCvR8LRAtY/view?usp=drivesdk",
+    "prompt": null,
+    "status": "pending",
+    "note": "静态 AI 插画慢推拉加旁白配音加字幕合成，无视频生成提示词原文。"
+  },
+  {
+    "title": "老年故事会第 2 集《老五的年夜饭》v2（Zephyr 童声）",
+    "date": "2026-11-20",
+    "duration": "3 分 47 秒",
+    "file": "your_files/elderly-story-ep02-laowu-nianyefan-zephyr-v2.mp4",
+    "drive": "https://drive.google.com/file/d/1Ifm2_OUlxHcvlzmFhLH10CmpQeDiwNtQ/view?usp=drivesdk",
+    "prompt": null,
+    "status": "pending",
+    "note": "重配版，仍为静态插画慢推拉加旁白配音加字幕合成，无视频生成提示词原文。"
+  },
+  {
+    "title": "老年故事会第 3 集《奶奶的缝纫机》Aoede 版",
+    "date": "2026-11-20",
+    "duration": "3 分 38 秒",
+    "file": "your_files/elderly-story-ep03-nainai-fengrenji-aoede.mp4",
+    "drive": "https://drive.google.com/file/d/1qp0NcYN16xJhItbrp_TLULho-o-P-yGw/view?usp=drivesdk",
+    "prompt": null,
+    "status": "pending",
+    "note": "重配版，仍为静态插画慢推拉加旁白配音加字幕合成，无视频生成提示词原文。"
+  },
+  {
+    "title": "老年故事会第 5 集《妈妈的搪瓷缸子》",
+    "date": "2026-11-19",
+    "duration": "3 分 44 秒",
+    "file": "your_files/elderly-story-ep05-mama-tangcigangzi-zephyr.mp4",
+    "drive": "https://drive.google.com/file/d/1IU1Zgm4hIkCXThpwY4IhwQN5aMStRdnr/view?usp=drivesdk",
+    "prompt": null,
+    "status": "pending",
+    "note": "静态 AI 插画慢推拉加旁白配音加字幕合成，无视频生成提示词原文。"
+  },
+  {
+    "title": "老年故事会第 6 集《爷爷的粮票本》",
+    "date": "2026-11-20",
+    "duration": "4 分 26 秒",
+    "file": "your_files/elderly-story-ep06-yeye-liangpiaoben-zephyr.mp4",
+    "drive": "https://drive.google.com/file/d/1f-f-S8pCDYCfKZhhwtj-U0yZalWt2kSq/view?usp=drivesdk",
+    "prompt": null,
+    "status": "pending",
+    "note": "静态 AI 插画慢推拉加旁白配音加字幕合成，无视频生成提示词原文。"
+  },
+  {
+    "title": "老年故事会第 7 集《爷爷十八岁》",
+    "date": "2026-11-20",
+    "duration": "1 分 15 秒",
+    "file": "your_files/elderly-story-ep07-yeye-shibasui-edge.mp4",
+    "drive": "https://drive.google.com/file/d/1irn0m4d9oA_bcGxycSDSDz-SoRVAId2X/view?usp=drivesdk",
+    "prompt": null,
+    "status": "pending",
+    "note": "Edge TTS 新版短集形态，仍为插画推拉加配音合成，无视频生成提示词原文。"
+  },
+  {
+    "title": "老年故事会第 8 集《奶奶的菜园子》",
+    "date": "2026-11-20",
+    "duration": "1 分 8 秒",
+    "file": "your_files/elderly-story-ep08-nainai-caiyuanzi-edge.mp4",
+    "drive": "https://drive.google.com/file/d/14cGTIBTGWhC0MNjtn03tVOMWVFUt8IO8/view?usp=drivesdk",
+    "prompt": null,
+    "status": "pending",
+    "note": "Edge TTS 新版短集形态，仍为插画推拉加配音合成，无视频生成提示词原文。"
+  },
+  {
+    "title": "灯塔黄昏终版",
+    "date": "2026-11-10",
+    "duration": "19.6 秒",
+    "file": "video-acceptance/lighthouse-final.mp4",
+    "drive": "https://drive.google.com/file/d/1i8Uz3TX-pXv8a_SW0gnSPn99Ob83qvEs/view?usp=drivesdk",
+    "prompt": null,
+    "status": "pending",
+    "note": "SH01 灯塔全景加 SH02 海浪拍岸两段 10 秒拼成 19.6 秒，逐段生成提示词原文未找到（JSON sidecar 仅为上传回执）。"
+  },
+  {
+    "title": "怪物帽夏日短片终版",
+    "date": "2026-11-12",
+    "duration": "30.0 秒",
+    "file": "monster_cap_film/monster-cap-summer-final.mp4",
+    "drive": "https://drive.google.com/file/d/1AVXWiyu_wYlU3jiimfpqhLIJL13OkoVi/view?usp=drivesdk",
+    "prompt": null,
+    "status": "pending",
+    "note": "7 场景加 4 片段的生成提示词原文未找到。"
+  },
+  {
+    "title": "武松打虎 60 秒",
+    "date": "2026-11-13",
+    "duration": "1 分 0 秒",
+    "file": "your_files/wusong-dahu-jiankong-60s.mp4",
+    "drive": "https://drive.google.com/file/d/1nCL706xxe8oi3qgrDnqg8lQwTcEFsxyM/view?usp=drivesdk",
+    "prompt": null,
+    "status": "pending",
+    "note": "对峙版开场加新拍 5 镜的逐段生成提示词原文未找到。"
+  },
+  {
+    "title": "雨夜加油站 60 秒·原生音频版",
+    "date": "2026-11-19",
+    "duration": "1 分 0 秒",
+    "file": "your_files/yuye-jiayouzhan-60s-native.mp4",
+    "drive": "https://drive.google.com/file/d/1oUNCp-cz7w2Wl5B5RaPZYy9huHQzpZEd/view?usp=drivesdk",
+    "prompt": "# 《雨夜加油站》完整分镜表（第二阶段，主人已拍板：结尾 A）\n\n- 总时长：60.0 秒，6 镜 × 10.0 秒，16:9 横屏电影感，实拍真人质感。\n- 场景：普通加油站，雨夜，无任何品牌标识、招牌文字须为无意义通用字或空白。\n- 情绪弧：雨夜疲惫 → 窘迫的笑 → 体面的累 → 最后一百块的停顿 → 认出自己 → 雨里笑出来。\n- 声音层：全程雨声底噪；轻钢琴第 5 镜起，稀疏，第 6 镜收束；对白全部后期配音，生成器只出画面与动作。\n\n## 人物锁\n\n- **老周**：约 50 岁，加油员，藏青工装＋同色棒球帽，微胖，笑眼，语速慢。性子：暖，不急，什么都见过。\n- **小峰**：17 岁，过去的自己，白 T 恤＋黑短裤＋旧电动车，湿发贴额，眼睛亮，咧嘴笑。性子：穷，松，没心没肺。\n- **林峰**：32 岁，现在的自己，浅灰衬衫（袖子卷到手肘）＋深色长裤，开黑色轿车，右手常拿手机，眼下发青，肩膀塌着。性子：体面，绷着，累。\n\n## 空间站位（全片不换）\n\n- 加油站雨棚下为暖光区（老周、收银台），雨棚外为冷雨区（小峰的车、林峰的轿车）。\n- 小峰的旧电动车自第 1 镜起停在画面左侧泵机旁，全程不动。\n- 林峰的黑色轿车自第 3 镜起停在画面右侧，全程不动。\n- 收银台在便利店玻璃后，第 4 镜唯一内景。\n- 全片只允许一次跨区移动：第 6 镜林峰从雨棚下走进雨里。\n\n## 分镜表\n\n### 镜头 01（0.0–10.0 秒）雨棚下全景\n\n- **景别**：全景，微仰。**机位**：固定后极慢推进，像雨里有人撑伞走近。\n- **表演**：雨夜加油站，雨棚灯暖黄，地面反光。小峰推着没电的旧电动车走进雨棚，浑身湿透，头发贴额，车轮碾过积水。老周从泵机后探身，笑着招手。\n- **对白**：老周：「躲雨啊？进来进来。」／小峰（抹一把脸上的水，笑）：「师傅，车没电了，借个地儿躲躲雨。」\n- **声音**：雨声，车轮碾水声。\n\n### 镜头 02（10.0–20.0 秒）泵机旁双人中景\n\n- **景别**：双人中景。**机位**：完全静止，只有雨和人动，写对峙的不是争执、是窘迫。\n- **表演**：小峰掏遍口袋，摊开手心：几枚硬币、一张皱巴巴的五块钱。老周低头看一眼，笑出声，拿抹布擦着手。雨水顺小峰的发梢往下滴。\n- **对白**：小峰：「兜里就剩五块了。」／老周：「五块钱的电，跑不回家啊。」／小峰（咧嘴）：「跑不回就不跑了，等雨停。」\n- **声音**：雨声，硬币轻响。\n\n### 镜头 03（20.0–30.0 秒）轿车驶入，跟拍中景\n\n- **景别**：中景跟拍。**机位**：横向缓慢跟移，从轿车车门跟到泵机。\n- **表演**：黑色轿车驶入雨棚，车灯划破雨幕。林峰下车，右手手机贴耳，左手揉一把脸，眼下发青，衬衫袖子卷到手肘。老周迎上去。\n- **对白**：林峰（对电话，疲惫）：「单子黄了就黄了吧……我连夜回一趟老家。」／老周：「95 加满？」／林峰点头，没说话。\n- **声音**：雨声，车门声，电话那头模糊的杂音。\n\n### 镜头 04（30.0–40.0 秒）收银台内景，特写→近景\n\n- **景别**：手部特写起，缓抬至面部近景。**机位**：固定，抬镜是全片唯一一次垂直运动。\n- **表演**：便利店暖光。林峰数钱：一张一百块从皮夹里抽出来，手指顿了顿，又摸了摸皮夹——空的。他把钱推过去，嘴角扯一下，没笑出来。老周接钱的手停半拍，抬眼看他。\n- **对白**：林峰：「多少钱？」／老周：「五百。」／林峰：「扫四百，剩下一百现金。」／老周（顿一下）：「小伙子，钱不够？」／林峰（苦笑，声音低下去）：「够。就是……这是我身上最后的一百了。」\n- **声音**：收银机轻响，雨声隔着玻璃闷闷的。\n\n### 镜头 05（40.0–50.0 秒）过肩近景（老周肩后拍林峰）\n\n- **景别**：过肩近景。**机位**：极慢推进，幅度很小，像屏息靠近；第 7 秒起焦点从林峰脸上缓移到雨里的小峰。\n- **表演**：林峰站在玻璃门边，望着雨里。小峰在雨棚外的水坑边跳了一下，水花溅起来，他仰头大笑。林峰瞳孔骤然放大，呼吸一滞，嘴唇微张说不出话，手指无意识地攥紧。\n- **对白**：林峰（气声，几乎是自言自语）：「那是我……」／老周：「啊？」／林峰（眼圈发红，笑意却漫上来）：「十七岁那年，我也这么淋过雨，兜里五块钱，笑得比谁都响。」\n- **声音**：钢琴起，稀疏两三个音；雨声；水花声。\n\n### 镜头 06（50.0–60.0 秒）雨里全景，拉远收束\n\n- **景别**：全景。**机位**：缓慢向后拉远，从两人特写逐渐拉开，露出整个加油站、雨幕、灯光，写「露出完整处境」的收束。\n- **表演**：小峰在水坑边踩水大笑，仰头，雨水打在脸上。林峰走出雨棚，走进雨里，抬头看雨，雨水顺着他的脸往下流，他先是一怔，然后笑出来——笑意冲破一张绷了一整晚的脸。两人隔着雨对视一笑。画面渐暗，出字幕卡（黑底白字，停留 4 秒，旁白轻声读出）：\n  > 小时候一打喷嚏，就猜是谁在想我；猜过所有人，唯独没猜过，是十七岁的自己在想我。\n- **对白**：无对白（只有结尾旁白读字幕卡）。\n- **声音**：钢琴收束，雨声渐强后收尾。\n\n## 连续性台账\n\n- 雨：全片同等强度，不停，不变天。\n- 小峰的白 T 恤：第 1 镜已湿透，之后各镜只湿不干；头发贴额不散开。\n- 电动车：第 1 镜停左侧泵机旁，之后各镜位置不变。\n- 林峰的灰衬衫：袖子自第 3 镜卷到手肘，之后不放下；手机第 3–4 镜在右手，第 5 镜起收进口袋。\n- 一百块钱：第 4 镜出现、递出，此后消失。\n- 老周的抹布：第 1–2 镜在手，第 3 镜起不在手。\n- 林峰的泪／红眼：第 5 镜起眼圈发红，第 6 镜雨水与泪痕不分，之后不消失。\n- 位置单调性：林峰第 6 镜从雨棚下走进雨里，只进不出；小峰全程在雨区，不进雨棚。\n\n## 现实感硬约束\n\n- 手持感自然主义：快动作带运动模糊，镜头起落时短暂失焦，雨夜灯光下曝光与白平衡轻微起伏，画面带细颗粒与暗部轻微色噪，轻度平台压缩感。\n- 禁止：全程处处锐利、HDR 油光、磨皮、稳定器式平滑运镜。\n\n## 负面约束\n\n- 不要互换三人的服装与发型；不要把对白张冠李戴（第 5 镜「那是我」必须是林峰的气声，第 6 镜字幕卡必须是旁白，不是林峰在画面里说话）；不要生成画面字幕、水印、品牌标识；不要让小峰进雨棚躲雨后又跑出去（第 6 镜他在雨里是另一时刻的闪回感，站位在雨区）；不要夸张变脸或颜艺化表演；不要快放、慢放；第 1–4 镜禁止背景音乐（只有雨声），钢琴只在第 5 镜起。\n\n## 制作约定\n\n- 先做锚图锁脸（老周、小峰、林峰各一张＋加油站雨夜场景一张），逐项验收后再拍视频镜。\n- 每镜一个生成调用，带同镜锚图作首帧参考；逐镜抽帧验收，对照本表与台账；坏镜最多重拍两次，再不行换更安全的景别（背影／特写／物件）。\n- 配音：沉稳男声旁白＋三人对白，首选 study 试点新嗓（验收通过才用），备选 Gemini Charon 经东京中转；字幕按配音重对齐后烧录。\n- 不走 Flow（只主人本人手工），不走 Vertex（已锁定），不走 Agnes 视频（已关闭）。",
+    "status": "complete",
+    "note": "分镜脚本原文取自 ai-studio/rainy-gas-station/script.md，逐镜生成时配同镜锚图作首帧参考；两版共用同一分镜表。"
+  },
+  {
+    "title": "雨夜加油站 60 秒",
+    "date": "2026-11-19",
+    "duration": "1 分 0 秒",
+    "file": "your_files/yuye-jiayouzhan-60s.mp4",
+    "drive": "https://drive.google.com/file/d/1AnMGFU3z_dGk1XXMRqnoqELiY1QFnTY5/view?usp=drivesdk",
+    "prompt": "# 《雨夜加油站》完整分镜表（第二阶段，主人已拍板：结尾 A）\n\n- 总时长：60.0 秒，6 镜 × 10.0 秒，16:9 横屏电影感，实拍真人质感。\n- 场景：普通加油站，雨夜，无任何品牌标识、招牌文字须为无意义通用字或空白。\n- 情绪弧：雨夜疲惫 → 窘迫的笑 → 体面的累 → 最后一百块的停顿 → 认出自己 → 雨里笑出来。\n- 声音层：全程雨声底噪；轻钢琴第 5 镜起，稀疏，第 6 镜收束；对白全部后期配音，生成器只出画面与动作。\n\n## 人物锁\n\n- **老周**：约 50 岁，加油员，藏青工装＋同色棒球帽，微胖，笑眼，语速慢。性子：暖，不急，什么都见过。\n- **小峰**：17 岁，过去的自己，白 T 恤＋黑短裤＋旧电动车，湿发贴额，眼睛亮，咧嘴笑。性子：穷，松，没心没肺。\n- **林峰**：32 岁，现在的自己，浅灰衬衫（袖子卷到手肘）＋深色长裤，开黑色轿车，右手常拿手机，眼下发青，肩膀塌着。性子：体面，绷着，累。\n\n## 空间站位（全片不换）\n\n- 加油站雨棚下为暖光区（老周、收银台），雨棚外为冷雨区（小峰的车、林峰的轿车）。\n- 小峰的旧电动车自第 1 镜起停在画面左侧泵机旁，全程不动。\n- 林峰的黑色轿车自第 3 镜起停在画面右侧，全程不动。\n- 收银台在便利店玻璃后，第 4 镜唯一内景。\n- 全片只允许一次跨区移动：第 6 镜林峰从雨棚下走进雨里。\n\n## 分镜表\n\n### 镜头 01（0.0–10.0 秒）雨棚下全景\n\n- **景别**：全景，微仰。**机位**：固定后极慢推进，像雨里有人撑伞走近。\n- **表演**：雨夜加油站，雨棚灯暖黄，地面反光。小峰推着没电的旧电动车走进雨棚，浑身湿透，头发贴额，车轮碾过积水。老周从泵机后探身，笑着招手。\n- **对白**：老周：「躲雨啊？进来进来。」／小峰（抹一把脸上的水，笑）：「师傅，车没电了，借个地儿躲躲雨。」\n- **声音**：雨声，车轮碾水声。\n\n### 镜头 02（10.0–20.0 秒）泵机旁双人中景\n\n- **景别**：双人中景。**机位**：完全静止，只有雨和人动，写对峙的不是争执、是窘迫。\n- **表演**：小峰掏遍口袋，摊开手心：几枚硬币、一张皱巴巴的五块钱。老周低头看一眼，笑出声，拿抹布擦着手。雨水顺小峰的发梢往下滴。\n- **对白**：小峰：「兜里就剩五块了。」／老周：「五块钱的电，跑不回家啊。」／小峰（咧嘴）：「跑不回就不跑了，等雨停。」\n- **声音**：雨声，硬币轻响。\n\n### 镜头 03（20.0–30.0 秒）轿车驶入，跟拍中景\n\n- **景别**：中景跟拍。**机位**：横向缓慢跟移，从轿车车门跟到泵机。\n- **表演**：黑色轿车驶入雨棚，车灯划破雨幕。林峰下车，右手手机贴耳，左手揉一把脸，眼下发青，衬衫袖子卷到手肘。老周迎上去。\n- **对白**：林峰（对电话，疲惫）：「单子黄了就黄了吧……我连夜回一趟老家。」／老周：「95 加满？」／林峰点头，没说话。\n- **声音**：雨声，车门声，电话那头模糊的杂音。\n\n### 镜头 04（30.0–40.0 秒）收银台内景，特写→近景\n\n- **景别**：手部特写起，缓抬至面部近景。**机位**：固定，抬镜是全片唯一一次垂直运动。\n- **表演**：便利店暖光。林峰数钱：一张一百块从皮夹里抽出来，手指顿了顿，又摸了摸皮夹——空的。他把钱推过去，嘴角扯一下，没笑出来。老周接钱的手停半拍，抬眼看他。\n- **对白**：林峰：「多少钱？」／老周：「五百。」／林峰：「扫四百，剩下一百现金。」／老周（顿一下）：「小伙子，钱不够？」／林峰（苦笑，声音低下去）：「够。就是……这是我身上最后的一百了。」\n- **声音**：收银机轻响，雨声隔着玻璃闷闷的。\n\n### 镜头 05（40.0–50.0 秒）过肩近景（老周肩后拍林峰）\n\n- **景别**：过肩近景。**机位**：极慢推进，幅度很小，像屏息靠近；第 7 秒起焦点从林峰脸上缓移到雨里的小峰。\n- **表演**：林峰站在玻璃门边，望着雨里。小峰在雨棚外的水坑边跳了一下，水花溅起来，他仰头大笑。林峰瞳孔骤然放大，呼吸一滞，嘴唇微张说不出话，手指无意识地攥紧。\n- **对白**：林峰（气声，几乎是自言自语）：「那是我……」／老周：「啊？」／林峰（眼圈发红，笑意却漫上来）：「十七岁那年，我也这么淋过雨，兜里五块钱，笑得比谁都响。」\n- **声音**：钢琴起，稀疏两三个音；雨声；水花声。\n\n### 镜头 06（50.0–60.0 秒）雨里全景，拉远收束\n\n- **景别**：全景。**机位**：缓慢向后拉远，从两人特写逐渐拉开，露出整个加油站、雨幕、灯光，写「露出完整处境」的收束。\n- **表演**：小峰在水坑边踩水大笑，仰头，雨水打在脸上。林峰走出雨棚，走进雨里，抬头看雨，雨水顺着他的脸往下流，他先是一怔，然后笑出来——笑意冲破一张绷了一整晚的脸。两人隔着雨对视一笑。画面渐暗，出字幕卡（黑底白字，停留 4 秒，旁白轻声读出）：\n  > 小时候一打喷嚏，就猜是谁在想我；猜过所有人，唯独没猜过，是十七岁的自己在想我。\n- **对白**：无对白（只有结尾旁白读字幕卡）。\n- **声音**：钢琴收束，雨声渐强后收尾。\n\n## 连续性台账\n\n- 雨：全片同等强度，不停，不变天。\n- 小峰的白 T 恤：第 1 镜已湿透，之后各镜只湿不干；头发贴额不散开。\n- 电动车：第 1 镜停左侧泵机旁，之后各镜位置不变。\n- 林峰的灰衬衫：袖子自第 3 镜卷到手肘，之后不放下；手机第 3–4 镜在右手，第 5 镜起收进口袋。\n- 一百块钱：第 4 镜出现、递出，此后消失。\n- 老周的抹布：第 1–2 镜在手，第 3 镜起不在手。\n- 林峰的泪／红眼：第 5 镜起眼圈发红，第 6 镜雨水与泪痕不分，之后不消失。\n- 位置单调性：林峰第 6 镜从雨棚下走进雨里，只进不出；小峰全程在雨区，不进雨棚。\n\n## 现实感硬约束\n\n- 手持感自然主义：快动作带运动模糊，镜头起落时短暂失焦，雨夜灯光下曝光与白平衡轻微起伏，画面带细颗粒与暗部轻微色噪，轻度平台压缩感。\n- 禁止：全程处处锐利、HDR 油光、磨皮、稳定器式平滑运镜。\n\n## 负面约束\n\n- 不要互换三人的服装与发型；不要把对白张冠李戴（第 5 镜「那是我」必须是林峰的气声，第 6 镜字幕卡必须是旁白，不是林峰在画面里说话）；不要生成画面字幕、水印、品牌标识；不要让小峰进雨棚躲雨后又跑出去（第 6 镜他在雨里是另一时刻的闪回感，站位在雨区）；不要夸张变脸或颜艺化表演；不要快放、慢放；第 1–4 镜禁止背景音乐（只有雨声），钢琴只在第 5 镜起。\n\n## 制作约定\n\n- 先做锚图锁脸（老周、小峰、林峰各一张＋加油站雨夜场景一张），逐项验收后再拍视频镜。\n- 每镜一个生成调用，带同镜锚图作首帧参考；逐镜抽帧验收，对照本表与台账；坏镜最多重拍两次，再不行换更安全的景别（背影／特写／物件）。\n- 配音：沉稳男声旁白＋三人对白，首选 study 试点新嗓（验收通过才用），备选 Gemini Charon 经东京中转；字幕按配音重对齐后烧录。\n- 不走 Flow（只主人本人手工），不走 Vertex（已锁定），不走 Agnes 视频（已关闭）。",
+    "status": "complete",
+    "note": "分镜脚本原文取自 ai-studio/rainy-gas-station/script.md，逐镜生成时配同镜锚图作首帧参考；两版共用同一分镜表。"
+  },
+  {
+    "title": "龟兔赛跑·再比一次 120 秒成片（16:9）",
+    "date": "2026-11-21",
+    "duration": "120.0 秒",
+    "file": "your_files/tortoise-hare-rematch-16x9.mp4",
+    "drive": "https://drive.google.com/file/d/16vOtnPgOMEbFXsSMZBAiyOkRC410m-ZB/view?usp=drivesdk",
+    "prompt": null,
+    "status": "pending",
+    "note": "成片为 16 段拼接加配音混音，无单条生成提示词，见各分段条目。"
+  },
+  {
+    "title": "龟兔赛跑 · 1A 闪回醒来（K1→K2）",
+    "date": "2026-11-21",
+    "duration": "10.0 秒",
+    "file": "tortoise-hare-rematch/videos/seg01a.mp4",
+    "drive": "https://drive.google.com/file/d/1DSeIBvjPXK82miD91oU5UYqN3EdtFkXF/view?usp=drivesdk",
+    "prompt": "Warm 2D picture-book children's fable animation, soft rounded shapes, gentle watercolor paper texture, warm golden sunlight, painterly rich backgrounds, 16:9 landscape, no text, no watermark. STRICT ASPECT RATIO LOCK: The final output video MUST be 16:9 landscape. All reference images - character sheets, keyframes, first-frame and last-frame images - MUST share this exact aspect ratio. NEVER mix aspect ratios. Keep every character exactly on-model with the attached sheets in all frames. RABBIT: A small fluffy white rabbit with tall upright ears (soft pink inner ears), big round amber eyes, a small pink nose, a fluffy round tail, wearing a small red scarf around its neck; bare pink-padded feet; expressive dark eyebrows; body slightly chubby and soft-rounded. TORTOISE: A small tortoise with a round domed olive-green shell with warm brown hexagonal scutes, sage-green head and short sturdy legs, gentle half-closed eyes with a calm smile, wearing a tiny straw hat tilted on its head; moves slowly and steadily, never in a hurry. FIRST FRAME: this image - warm hazy flashback: the white rabbit naps leaning against a big tree (trunk, soft snore puff), in the distance the tortoise slowly crosses a finish line; dreamy soft vignette, golden light. The banner over the finish line is blank, with no letters and no words. MOTION: The haze gently lifts and the scene dissolves into the present forest clearing; the rabbit wakes with a start, sits up, ears perked, eyes narrowing at the tortoise. CAMERA: slow push-in on the rabbit as it wakes, then a gentle settle to a two-shot.\nLAST FRAME: match this image exactly - the rabbit stands hands on hips, pouting at the tortoise; the tortoise faces it, half-closed eyes, calm. SOUND: soft birdsong, a faint sleepy sigh, leaves rustling. MUSIC: light playful melody, warm and bouncy.",
+    "status": "complete",
+    "note": "提示词原文取自 tortoise-hare-rematch/gen_videos.py，生成时以 conversation-json 两段文本块连同角色 sheet 与首末帧关键帧图片提交。"
+  },
+  {
+    "title": "龟兔赛跑 · 1B 下战书（K2→K3）",
+    "date": "2026-11-21",
+    "duration": "10.0 秒",
+    "file": "tortoise-hare-rematch/videos/seg01b.mp4",
+    "drive": "https://drive.google.com/file/d/1WVtCdFQ_TTCi8uIltUFZh2prUCu-16dR/view?usp=drivesdk",
+    "prompt": "Warm 2D picture-book children's fable animation, soft rounded shapes, gentle watercolor paper texture, warm golden sunlight, painterly rich backgrounds, 16:9 landscape, no text, no watermark. STRICT ASPECT RATIO LOCK: The final output video MUST be 16:9 landscape. All reference images - character sheets, keyframes, first-frame and last-frame images - MUST share this exact aspect ratio. NEVER mix aspect ratios. Keep every character exactly on-model with the attached sheets in all frames. RABBIT: A small fluffy white rabbit with tall upright ears (soft pink inner ears), big round amber eyes, a small pink nose, a fluffy round tail, wearing a small red scarf around its neck; bare pink-padded feet; expressive dark eyebrows; body slightly chubby and soft-rounded. TORTOISE: A small tortoise with a round domed olive-green shell with warm brown hexagonal scutes, sage-green head and short sturdy legs, gentle half-closed eyes with a calm smile, wearing a tiny straw hat tilted on its head; moves slowly and steadily, never in a hurry. FIRST FRAME: this image - the rabbit hands on hips, pouting; the tortoise opposite, calm. MOTION: The rabbit stamps one foot on the ground, points a paw at the tortoise, speaking with big mouth movements and bobbing ears; the tortoise listens, then nods gently once, its little straw hat tilting slightly with the nod. CAMERA: static two-shot, slight push-in on the rabbit during the challenge, then hold.\nLAST FRAME: match this image exactly - rabbit mid-point, foot stamped; tortoise mid-nod, hat tilted. SOUND: a soft foot stomp on dirt, leaves rustle. MUSIC: playful melody continues, a small rising note on the challenge.",
+    "status": "complete",
+    "note": "提示词原文取自 tortoise-hare-rematch/gen_videos.py，生成时以 conversation-json 两段文本块连同角色 sheet 与首末帧关键帧图片提交。"
+  },
+  {
+    "title": "龟兔赛跑 · 2A 偷挖陷阱（K4→K5a）",
+    "date": "2026-11-21",
+    "duration": "10.0 秒",
+    "file": "tortoise-hare-rematch/videos/seg02a.mp4",
+    "drive": "https://drive.google.com/file/d/1q1In980rCaETCf4XuaG_YFnm_R8RfzE0/view?usp=drivesdk",
+    "prompt": "Warm 2D picture-book children's fable animation, soft rounded shapes, gentle watercolor paper texture, warm golden sunlight, painterly rich backgrounds, 16:9 landscape, no text, no watermark. STRICT ASPECT RATIO LOCK: The final output video MUST be 16:9 landscape. All reference images - character sheets, keyframes, first-frame and last-frame images - MUST share this exact aspect ratio. NEVER mix aspect ratios. Keep every character exactly on-model with the attached sheets in all frames. RABBIT: A small fluffy white rabbit with tall upright ears (soft pink inner ears), big round amber eyes, a small pink nose, a fluffy round tail, wearing a small red scarf around its neck; bare pink-padded feet; expressive dark eyebrows; body slightly chubby and soft-rounded. FIRST FRAME: this image - dusk on the dirt race track, orange evening light; the rabbit glances left and right, front paws pressed on the dirt, sneaky expression. MOTION: The rabbit looks around once more, then digs furiously with both front paws; clods of dirt fly up and land in a small pile beside the hole; its ears flop with each dig. CAMERA: low angle at track level, slow push-in toward the digging paws.\nLAST FRAME: match this image exactly - rabbit mid-dig, dirt flying, small dirt pile beside the hole. The clip must END while the rabbit is still actively digging, front paws buried in the dirt, clods of dirt flying in the air - do not end on a resting or sitting pose, do not show the rabbit sitting back smiling. SOUND: rhythmic scratching and digging, dirt clods thudding. MUSIC: playful melody turns sly - a tiptoeing pizzicato figure.",
+    "status": "complete",
+    "note": "提示词原文取自 tortoise-hare-rematch/gen_videos.py，生成时以 conversation-json 两段文本块连同角色 sheet 与首末帧关键帧图片提交。"
+  },
+  {
+    "title": "龟兔赛跑 · 2B 盖叶伪装（K5a→K5）",
+    "date": "2026-11-21",
+    "duration": "10.0 秒",
+    "file": "tortoise-hare-rematch/videos/seg02b.mp4",
+    "drive": "https://drive.google.com/file/d/1rD5KKH9tSlqp3h6qCaHKu5F_1buuKrSm/view?usp=drivesdk",
+    "prompt": "Warm 2D picture-book children's fable animation, soft rounded shapes, gentle watercolor paper texture, warm golden sunlight, painterly rich backgrounds, 16:9 landscape, no text, no watermark. STRICT ASPECT RATIO LOCK: The final output video MUST be 16:9 landscape. All reference images - character sheets, keyframes, first-frame and last-frame images - MUST share this exact aspect ratio. NEVER mix aspect ratios. Keep every character exactly on-model with the attached sheets in all frames. RABBIT: A small fluffy white rabbit with tall upright ears (soft pink inner ears), big round amber eyes, a small pink nose, a fluffy round tail, wearing a small red scarf around its neck; bare pink-padded feet; expressive dark eyebrows; body slightly chubby and soft-rounded. FIRST FRAME: this image - rabbit mid-dig, dirt flying. MOTION: The rabbit climbs out of the finished pit, lays dry leaves over the hole one by one with its paws, pats the leaves flat, then brushes its paws together, sits back and grins slyly, eyes narrowed in satisfaction. CAMERA: slight rise to a wider shot revealing the camouflaged pit in the track.\nLAST FRAME: match this image exactly - pit hidden under leaves, rabbit grinning slyly, early moon rising. SOUND: leaves rustling as they are laid down, a soft satisfied chuckle. MUSIC: sly pizzicato resolves into a smug little flourish.",
+    "status": "complete",
+    "note": "提示词原文取自 tortoise-hare-rematch/gen_videos.py，生成时以 conversation-json 两段文本块连同角色 sheet 与首末帧关键帧图片提交。"
+  },
+  {
+    "title": "龟兔赛跑 · 3A 赛场开场（K6→K6b）",
+    "date": "2026-11-21",
+    "duration": "10.0 秒",
+    "file": "tortoise-hare-rematch/videos/seg03a.mp4",
+    "drive": "https://drive.google.com/file/d/1IGxM4fgCTSGEsNMmV4GQmy0-kNvGrpDB/view?usp=drivesdk",
+    "prompt": "Warm 2D picture-book children's fable animation, soft rounded shapes, gentle watercolor paper texture, warm golden sunlight, painterly rich backgrounds, 16:9 landscape, no text, no watermark. STRICT ASPECT RATIO LOCK: The final output video MUST be 16:9 landscape. All reference images - character sheets, keyframes, first-frame and last-frame images - MUST share this exact aspect ratio. NEVER mix aspect ratios. Keep every character exactly on-model with the attached sheets in all frames. RABBIT: A small fluffy white rabbit with tall upright ears (soft pink inner ears), big round amber eyes, a small pink nose, a fluffy round tail, wearing a small red scarf around its neck; bare pink-padded feet; expressive dark eyebrows; body slightly chubby and soft-rounded. TORTOISE: A small tortoise with a round domed olive-green shell with warm brown hexagonal scutes, sage-green head and short sturdy legs, gentle half-closed eyes with a calm smile, wearing a tiny straw hat tilted on its head; moves slowly and steadily, never in a hurry. GOAT: A tall elderly goat with a long white beard, curved grey horns, round brass spectacles, wearing a brown tweed vest over a cream shirt; holds a small wooden whistle on a cord and a red start flag; kind, unhurried, fair. CROWD: a small reddish-brown squirrel with a huge fluffy tail holding an acorn; a small round hedgehog with brown spines and a tiny red bow; a plump little sparrow with brown-grey feathers and a yellow beak. FIRST FRAME: this image - race morning at the start line: rabbit and tortoise in their lanes, Grandpa Goat standing to one side, the squirrel, hedgehog and sparrow gathered along the track, morning light. The ONLY spectators are these three small animals. No human people, no children, no human crowd anywhere in the scene. The tortoise wears its tiny straw hat in every shot. MOTION: The animals settle and turn toward the start line; the sparrow hops to a branch; the squirrel waves its acorn; Grandpa Goat steps forward and raises the wooden whistle and the red flag. CAMERA: slow wide establishing pan across the crowd to the start line.\nLAST FRAME: match this image exactly - Grandpa Goat raising whistle and flag, crowd gone quiet. Only the three small animals are present as spectators, no humans. SOUND: morning birdsong, soft animal murmurs and shuffling, then silence falling. MUSIC: playful melody softens, a held anticipatory note.",
+    "status": "complete",
+    "note": "提示词原文取自 tortoise-hare-rematch/gen_videos.py，生成时以 conversation-json 两段文本块连同角色 sheet 与首末帧关键帧图片提交。"
+  },
+  {
+    "title": "龟兔赛跑 · 3B 屏息等待（K6b→K7）",
+    "date": "2026-11-21",
+    "duration": "10.0 秒",
+    "file": "tortoise-hare-rematch/videos/seg03b.mp4",
+    "drive": "https://drive.google.com/file/d/1R1A0W5HSW-B401bGQrtIjAL2Ei1BDd2B/view?usp=drivesdk",
+    "prompt": "Warm 2D picture-book children's fable animation, soft rounded shapes, gentle watercolor paper texture, warm golden sunlight, painterly rich backgrounds, 16:9 landscape, no text, no watermark. STRICT ASPECT RATIO LOCK: The final output video MUST be 16:9 landscape. All reference images - character sheets, keyframes, first-frame and last-frame images - MUST share this exact aspect ratio. NEVER mix aspect ratios. Keep every character exactly on-model with the attached sheets in all frames. RABBIT: A small fluffy white rabbit with tall upright ears (soft pink inner ears), big round amber eyes, a small pink nose, a fluffy round tail, wearing a small red scarf around its neck; bare pink-padded feet; expressive dark eyebrows; body slightly chubby and soft-rounded. TORTOISE: A small tortoise with a round domed olive-green shell with warm brown hexagonal scutes, sage-green head and short sturdy legs, gentle half-closed eyes with a calm smile, wearing a tiny straw hat tilted on its head; moves slowly and steadily, never in a hurry. GOAT: A tall elderly goat with a long white beard, curved grey horns, round brass spectacles, wearing a brown tweed vest over a cream shirt; holds a small wooden whistle on a cord and a red start flag; kind, unhurried, fair. CROWD: a small reddish-brown squirrel with a huge fluffy tail holding an acorn; a small round hedgehog with brown spines and a tiny red bow; a plump little sparrow with brown-grey feathers and a yellow beak. FIRST FRAME: this image - Grandpa Goat raising whistle and flag. MOTION: Grandpa Goat brings the whistle to his lips; the rabbit crouches low, front paws tensed, ears back; the tortoise lowers its head slightly; every animal holds still, even the sparrow stops chirping; a single leaf drifts down in the still air. CAMERA: slow push-in on the start line, ending on a close two-shot of rabbit and tortoise.\nLAST FRAME: match this image exactly - whistle at lips, rabbit tensed, tortoise head lowered, total stillness. The final frame stays in bright daylight, fully lit - no fade to black, no dimming, no darkening. The tortoise's straw hat stays on its head. SOUND: near-silence, one leaf landing softly. MUSIC: the held note sustains, no resolution yet. No voiceover - let the held breath carry the scene.",
+    "status": "complete",
+    "note": "提示词原文取自 tortoise-hare-rematch/gen_videos.py，生成时以 conversation-json 两段文本块连同角色 sheet 与首末帧关键帧图片提交。"
+  },
+  {
+    "title": "龟兔赛跑 · 4A 哨响冲出（K8→K8b）",
+    "date": "2026-11-21",
+    "duration": "10.0 秒",
+    "file": "tortoise-hare-rematch/videos/seg04a.mp4",
+    "drive": "https://drive.google.com/file/d/1jvxB_1rdnhu_pzuOy_WX-LtLriushqAE/view?usp=drivesdk",
+    "prompt": "Warm 2D picture-book children's fable animation, soft rounded shapes, gentle watercolor paper texture, warm golden sunlight, painterly rich backgrounds, 16:9 landscape, no text, no watermark. STRICT ASPECT RATIO LOCK: The final output video MUST be 16:9 landscape. All reference images - character sheets, keyframes, first-frame and last-frame images - MUST share this exact aspect ratio. NEVER mix aspect ratios. Keep every character exactly on-model with the attached sheets in all frames. RABBIT: A small fluffy white rabbit with tall upright ears (soft pink inner ears), big round amber eyes, a small pink nose, a fluffy round tail, wearing a small red scarf around its neck; bare pink-padded feet; expressive dark eyebrows; body slightly chubby and soft-rounded. TORTOISE: A small tortoise with a round domed olive-green shell with warm brown hexagonal scutes, sage-green head and short sturdy legs, gentle half-closed eyes with a calm smile, wearing a tiny straw hat tilted on its head; moves slowly and steadily, never in a hurry. GOAT: A tall elderly goat with a long white beard, curved grey horns, round brass spectacles, wearing a brown tweed vest over a cream shirt; holds a small wooden whistle on a cord and a red start flag; kind, unhurried, fair. CROWD: a small reddish-brown squirrel with a huge fluffy tail holding an acorn; a small round hedgehog with brown spines and a tiny red bow; a plump little sparrow with brown-grey feathers and a yellow beak. FIRST FRAME: this image - the whistle blows, the red flag sweeps down; the rabbit bursts forward in a motion blur with speed lines; the tortoise takes its first slow step. MOTION: The rabbit dashes away down the track, ears streaming behind; the tortoise lifts one short leg, places it down, lifts the next - slow and steady; the crowd cheers and waves. CAMERA: tracking shot following the rabbit's burst, then easing back to the tortoise.\nLAST FRAME: match this image exactly - rabbit a small figure far ahead, tortoise mid-track stepping steadily. SOUND: sharp whistle, cheering animals, rushing wind. MUSIC: fast bouncy run for the rabbit, then the steady theme returns under the tortoise.",
+    "status": "complete",
+    "note": "提示词原文取自 tortoise-hare-rematch/gen_videos.py，生成时以 conversation-json 两段文本块连同角色 sheet 与首末帧关键帧图片提交。"
+  },
+  {
+    "title": "龟兔赛跑 · 4B 回头得意（K8b→K9）",
+    "date": "2026-11-21",
+    "duration": "10.0 秒",
+    "file": "tortoise-hare-rematch/videos/seg04b.mp4",
+    "drive": "https://drive.google.com/file/d/1OokHwhM82oiJuNXBEKGKE13nLkM_RVAh/view?usp=drivesdk",
+    "prompt": "Warm 2D picture-book children's fable animation, soft rounded shapes, gentle watercolor paper texture, warm golden sunlight, painterly rich backgrounds, 16:9 landscape, no text, no watermark. STRICT ASPECT RATIO LOCK: The final output video MUST be 16:9 landscape. All reference images - character sheets, keyframes, first-frame and last-frame images - MUST share this exact aspect ratio. NEVER mix aspect ratios. Keep every character exactly on-model with the attached sheets in all frames. RABBIT: A small fluffy white rabbit with tall upright ears (soft pink inner ears), big round amber eyes, a small pink nose, a fluffy round tail, wearing a small red scarf around its neck; bare pink-padded feet; expressive dark eyebrows; body slightly chubby and soft-rounded. TORTOISE: A small tortoise with a round domed olive-green shell with warm brown hexagonal scutes, sage-green head and short sturdy legs, gentle half-closed eyes with a calm smile, wearing a tiny straw hat tilted on its head; moves slowly and steadily, never in a hurry. FIRST FRAME: this image - rabbit far ahead, tortoise mid-track. MOTION: The rabbit slows to a trot, turns its head back to look at the tiny tortoise far behind, puffs out its chest proudly and laughs, ears bouncing; the tortoise keeps crawling, head down, legs moving in the same calm rhythm, unbothered. CAMERA: medium shot on the rabbit looking back, then a cut-away feel to the tortoise.\nLAST FRAME: match this image exactly - rabbit looking back, proud and laughing; tortoise still crawling steadily. SOUND: wind easing, the rabbit's laugh, soft rhythmic crawling steps. MUSIC: playful melody, a smug little bounce on the rabbit's laugh. No voiceover - the contrast plays without words.",
+    "status": "complete",
+    "note": "提示词原文取自 tortoise-hare-rematch/gen_videos.py，生成时以 conversation-json 两段文本块连同角色 sheet 与首末帧关键帧图片提交。"
+  },
+  {
+    "title": "龟兔赛跑 · 5A 下坡失足（K10→K10b）",
+    "date": "2026-11-21",
+    "duration": "10.0 秒",
+    "file": "tortoise-hare-rematch/videos/seg05a.mp4",
+    "drive": "https://drive.google.com/file/d/1m0rteywswcwGMpzS_DrCdBdjrhFMlzyw/view?usp=drivesdk",
+    "prompt": "Warm 2D picture-book children's fable animation, soft rounded shapes, gentle watercolor paper texture, warm golden sunlight, painterly rich backgrounds, 16:9 landscape, no text, no watermark. STRICT ASPECT RATIO LOCK: The final output video MUST be 16:9 landscape. All reference images - character sheets, keyframes, first-frame and last-frame images - MUST share this exact aspect ratio. NEVER mix aspect ratios. Keep every character exactly on-model with the attached sheets in all frames. RABBIT: A small fluffy white rabbit with tall upright ears (soft pink inner ears), big round amber eyes, a small pink nose, a fluffy round tail, wearing a small red scarf around its neck; bare pink-padded feet; expressive dark eyebrows; body slightly chubby and soft-rounded. FIRST FRAME: this image - downhill stretch of the track; the rabbit runs downhill while looking back over its shoulder, body leaning back, laughing and showing off. MOTION: The rabbit runs downhill with its head turned back, laughing; its front foot reaches forward toward a patch of dry leaves on the track - the hidden pit edge; its eyes widen as the ground gives way under its paw. CAMERA: side tracking shot keeping pace with the rabbit, slight tilt as it stumbles.\nLAST FRAME: match this image exactly - rabbit's front foot on the leaf-covered pit edge, body tipping forward, arms flailing, leaves flying up. SOUND: running footsteps on dirt, the rabbit's laugh cutting off, leaves crunching. MUSIC: playful melody stumbles and stops on a dissonant note.",
+    "status": "complete",
+    "note": "提示词原文取自 tortoise-hare-rematch/gen_videos.py，生成时以 conversation-json 两段文本块连同角色 sheet 与首末帧关键帧图片提交。"
+  },
+  {
+    "title": "龟兔赛跑 · 5B 掉进坑里（K10b→K11）",
+    "date": "2026-11-21",
+    "duration": "10.0 秒",
+    "file": "tortoise-hare-rematch/videos/seg05b.mp4",
+    "drive": "https://drive.google.com/file/d/1NHdPSIqM45lwuNG7AsCvNwTfut8JUlXO/view?usp=drivesdk",
+    "prompt": "Warm 2D picture-book children's fable animation, soft rounded shapes, gentle watercolor paper texture, warm golden sunlight, painterly rich backgrounds, 16:9 landscape, no text, no watermark. STRICT ASPECT RATIO LOCK: The final output video MUST be 16:9 landscape. All reference images - character sheets, keyframes, first-frame and last-frame images - MUST share this exact aspect ratio. NEVER mix aspect ratios. Keep every character exactly on-model with the attached sheets in all frames. RABBIT: A small fluffy white rabbit with tall upright ears (soft pink inner ears), big round amber eyes, a small pink nose, a fluffy round tail, wearing a small red scarf around its neck; bare pink-padded feet; expressive dark eyebrows; body slightly chubby and soft-rounded. FIRST FRAME: this image - rabbit tipping forward at the pit edge. MOTION: The rabbit tumbles forward into the pit with a splash of mud; it flails its paws, scrabbling at the muddy pit walls, mud flying up and out of the hole; it ends sitting in the mud, soaked and mud-covered, ears drooping, blinking mud from its eyes. CAMERA: high angle looking down into the pit as it falls, then a close shot of the muddy rabbit.\nLAST FRAME: match this image exactly - rabbit sitting in the pit, covered in mud, flailing paws, mud flying. SOUND: a loud SPLASH, muddy squelches, the rabbit's panicked shout. MUSIC: silence for the fall, then a single low comic note.",
+    "status": "complete",
+    "note": "提示词原文取自 tortoise-hare-rematch/gen_videos.py，生成时以 conversation-json 两段文本块连同角色 sheet 与首末帧关键帧图片提交。"
+  },
+  {
+    "title": "龟兔赛跑 · 6A 绕坑到河边（K12→K12b）",
+    "date": "2026-11-21",
+    "duration": "10.0 秒",
+    "file": "tortoise-hare-rematch/videos/seg06a.mp4",
+    "drive": "https://drive.google.com/file/d/1e66DmRXOxph7CMYUDFRKf6Hyr5dakobe/view?usp=drivesdk",
+    "prompt": "Warm 2D picture-book children's fable animation, soft rounded shapes, gentle watercolor paper texture, warm golden sunlight, painterly rich backgrounds, 16:9 landscape, no text, no watermark. STRICT ASPECT RATIO LOCK: The final output video MUST be 16:9 landscape. All reference images - character sheets, keyframes, first-frame and last-frame images - MUST share this exact aspect ratio. NEVER mix aspect ratios. Keep every character exactly on-model with the attached sheets in all frames. TORTOISE: A small tortoise with a round domed olive-green shell with warm brown hexagonal scutes, sage-green head and short sturdy legs, gentle half-closed eyes with a calm smile, wearing a tiny straw hat tilted on its head; moves slowly and steadily, never in a hurry. RABBIT: A small fluffy white rabbit with tall upright ears (soft pink inner ears), big round amber eyes, a small pink nose, a fluffy round tail, wearing a small red scarf around its neck; bare pink-padded feet; expressive dark eyebrows; body slightly chubby and soft-rounded. FIRST FRAME: this image - the tortoise arrives at the pit edge, the muddy pit in the track ahead; the river appears in the distance beyond. MOTION: The tortoise calmly walks around the pit in a wide steady arc, never hurrying; behind it the rabbit scrambles out of the pit, muddy and disheveled, and runs after it; the tortoise reaches the riverbank and tests the water with one front foot. CAMERA: gentle follow shot alongside the tortoise's arc around the pit, widening to the river.\nLAST FRAME: match this image exactly - tortoise at the riverbank testing the water; the rabbit arriving behind, staring at the river in worry. SOUND: steady crawling steps, muddy footsteps behind, soft river sounds approaching. MUSIC: the melody turns calm and flowing, like water.",
+    "status": "complete",
+    "note": "提示词原文取自 tortoise-hare-rematch/gen_videos.py，生成时以 conversation-json 两段文本块连同角色 sheet 与首末帧关键帧图片提交。"
+  },
+  {
+    "title": "龟兔赛跑 · 6B 乌龟渡河（K12b→K13）",
+    "date": "2026-11-21",
+    "duration": "10.0 秒",
+    "file": "tortoise-hare-rematch/videos/seg06b.mp4",
+    "drive": "https://drive.google.com/file/d/12AfbeThosHCBMSHiu1spy49A2Kcy8MHM/view?usp=drivesdk",
+    "prompt": "Warm 2D picture-book children's fable animation, soft rounded shapes, gentle watercolor paper texture, warm golden sunlight, painterly rich backgrounds, 16:9 landscape, no text, no watermark. STRICT ASPECT RATIO LOCK: The final output video MUST be 16:9 landscape. All reference images - character sheets, keyframes, first-frame and last-frame images - MUST share this exact aspect ratio. NEVER mix aspect ratios. Keep every character exactly on-model with the attached sheets in all frames. TORTOISE: A small tortoise with a round domed olive-green shell with warm brown hexagonal scutes, sage-green head and short sturdy legs, gentle half-closed eyes with a calm smile, wearing a tiny straw hat tilted on its head; moves slowly and steadily, never in a hurry. RABBIT: A small fluffy white rabbit with tall upright ears (soft pink inner ears), big round amber eyes, a small pink nose, a fluffy round tail, wearing a small red scarf around its neck; bare pink-padded feet; expressive dark eyebrows; body slightly chubby and soft-rounded. FIRST FRAME: this image - tortoise at the riverbank, rabbit behind worrying. MOTION: The tortoise slides into the river and paddles with all four legs in turn, its domed shell riding above the waterline, ripples spreading behind it; on the bank the rabbit paces back and forth, looking at the wide water, ears drooping, unable to cross. CAMERA: low water-level shot following the tortoise's swim, then a wider shot of the rabbit pacing the bank.\nLAST FRAME: match this image exactly - tortoise swimming mid-river, shell above water, ripples spreading; rabbit pacing the bank. SOUND: gentle flowing water, rhythmic paddling splashes, the rabbit's worried sigh. MUSIC: calm flowing melody, unhurried.",
+    "status": "complete",
+    "note": "提示词原文取自 tortoise-hare-rematch/gen_videos.py，生成时以 conversation-json 两段文本块连同角色 sheet 与首末帧关键帧图片提交。"
+  },
+  {
+    "title": "龟兔赛跑 · 7A 上岸近终点（K14→K14b）",
+    "date": "2026-11-21",
+    "duration": "10.0 秒",
+    "file": "tortoise-hare-rematch/videos/seg07a.mp4",
+    "drive": "https://drive.google.com/file/d/1NBLuneSCxb3r4wwTULCindgVHcGqHtuG/view?usp=drivesdk",
+    "prompt": "Warm 2D picture-book children's fable animation, soft rounded shapes, gentle watercolor paper texture, warm golden sunlight, painterly rich backgrounds, 16:9 landscape, no text, no watermark. STRICT ASPECT RATIO LOCK: The final output video MUST be 16:9 landscape. All reference images - character sheets, keyframes, first-frame and last-frame images - MUST share this exact aspect ratio. NEVER mix aspect ratios. Keep every character exactly on-model with the attached sheets in all frames. TORTOISE: A small tortoise with a round domed olive-green shell with warm brown hexagonal scutes, sage-green head and short sturdy legs, gentle half-closed eyes with a calm smile, wearing a tiny straw hat tilted on its head; moves slowly and steadily, never in a hurry. CROWD: a small reddish-brown squirrel with a huge fluffy tail holding an acorn; a small round hedgehog with brown spines and a tiny red bow; a plump little sparrow with brown-grey feathers and a yellow beak. FIRST FRAME: this image - the tortoise climbs out onto the far bank, shaking off water droplets. MOTION: The tortoise shakes water from its shell, sets off toward the finish line with the same steady crawl; the animals on the far side stand up, the squirrel waves, the sparrow flutters; the finish line with its white stripe and small flags comes into view. CAMERA: low follow shot behind the tortoise as it climbs the bank and heads for the line.\nLAST FRAME: match this image exactly - tortoise nearing the finish line; animals standing and clapping; the rabbit standing quietly at the far riverbank, watching. SOUND: water dripping, steady crawling steps, rising cheers. MUSIC: the melody rises, warm and lifting.",
+    "status": "complete",
+    "note": "提示词原文取自 tortoise-hare-rematch/gen_videos.py，生成时以 conversation-json 两段文本块连同角色 sheet 与首末帧关键帧图片提交。"
+  },
+  {
+    "title": "龟兔赛跑 · 7B 乌龟冲线（K14b→K15）",
+    "date": "2026-11-21",
+    "duration": "10.0 秒",
+    "file": "tortoise-hare-rematch/videos/seg07b.mp4",
+    "drive": "https://drive.google.com/file/d/1sfYmkfkSFZjWZ9qamaZWbwc8pqddWieA/view?usp=drivesdk",
+    "prompt": "Warm 2D picture-book children's fable animation, soft rounded shapes, gentle watercolor paper texture, warm golden sunlight, painterly rich backgrounds, 16:9 landscape, no text, no watermark. STRICT ASPECT RATIO LOCK: The final output video MUST be 16:9 landscape. All reference images - character sheets, keyframes, first-frame and last-frame images - MUST share this exact aspect ratio. NEVER mix aspect ratios. Keep every character exactly on-model with the attached sheets in all frames. TORTOISE: A small tortoise with a round domed olive-green shell with warm brown hexagonal scutes, sage-green head and short sturdy legs, gentle half-closed eyes with a calm smile, wearing a tiny straw hat tilted on its head; moves slowly and steadily, never in a hurry. CROWD: a small reddish-brown squirrel with a huge fluffy tail holding an acorn; a small round hedgehog with brown spines and a tiny red bow; a plump little sparrow with brown-grey feathers and a yellow beak. RABBIT: A small fluffy white rabbit with tall upright ears (soft pink inner ears), big round amber eyes, a small pink nose, a fluffy round tail, wearing a small red scarf around its neck; bare pink-padded feet; expressive dark eyebrows; body slightly chubby and soft-rounded. FIRST FRAME: this image - tortoise nearing the line, animals clapping. MOTION: The tortoise's front foot crosses the white finish line on the dirt; the crowd erupts - the squirrel throws its acorn in the air, the hedgehog claps, the sparrow chirps; colorful leaves drift down; the rabbit stands at the riverbank, watching quietly, ears lowered. CAMERA: slow push-in on the tortoise's foot crossing the line, then a wide shot of the celebration with the rabbit small in the background.\nLAST FRAME: match this image exactly - tortoise across the line, animals applauding, leaves falling; rabbit watching quietly from the riverbank. The final frame MUST be a wide shot showing the WHOLE tortoise with its front foot across the white finish line - do not cut to a crowd close-up, do not crop the tortoise out of frame. There is exactly ONE rabbit in the scene, standing at the riverbank watching - do not duplicate the rabbit, do not show two rabbits. Keep the frame bright and fully lit, no dimming. SOUND: applause, cheering, leaves rustling down. MUSIC: full warm swell, then easing to let the applause breathe.",
+    "status": "complete",
+    "note": "提示词原文取自 tortoise-hare-rematch/gen_videos.py，生成时以 conversation-json 两段文本块连同角色 sheet 与首末帧关键帧图片提交。"
+  },
+  {
+    "title": "龟兔赛跑 · 8A 低头想通（K16→K16b）",
+    "date": "2026-11-21",
+    "duration": "10.0 秒",
+    "file": "tortoise-hare-rematch/videos/seg08a.mp4",
+    "drive": "https://drive.google.com/file/d/1WkGh-KJIXQH0VOjzQneXxbPq2Yfn5hFs/view?usp=drivesdk",
+    "prompt": "Warm 2D picture-book children's fable animation, soft rounded shapes, gentle watercolor paper texture, warm golden sunlight, painterly rich backgrounds, 16:9 landscape, no text, no watermark. STRICT ASPECT RATIO LOCK: The final output video MUST be 16:9 landscape. All reference images - character sheets, keyframes, first-frame and last-frame images - MUST share this exact aspect ratio. NEVER mix aspect ratios. Keep every character exactly on-model with the attached sheets in all frames. RABBIT: A small fluffy white rabbit with tall upright ears (soft pink inner ears), big round amber eyes, a small pink nose, a fluffy round tail, wearing a small red scarf around its neck; bare pink-padded feet; expressive dark eyebrows; body slightly chubby and soft-rounded. FIRST FRAME: this image - golden sunlight over the forest clearing; the rabbit stands at the riverbank, head bowed, ears drooping, gloomy and thoughtful. MOTION: The rabbit stands still, head low; slowly its ears lift a little, its eyes rise, its expression shifts from gloom to quiet thought - a small sigh, a blink, the start of understanding. CAMERA: slow close push-in on the rabbit's face as its expression changes.\nLAST FRAME: match this image exactly - rabbit's head lifting, eyes brightening, mouth softening. SOUND: soft wind in the trees, a quiet sigh, distant birdsong. MUSIC: warm gentle melody, soft and resolving.",
+    "status": "complete",
+    "note": "提示词原文取自 tortoise-hare-rematch/gen_videos.py，生成时以 conversation-json 两段文本块连同角色 sheet 与首末帧关键帧图片提交。"
+  },
+  {
+    "title": "龟兔赛跑 · 8B 释然微笑（K16b→K17）",
+    "date": "2026-11-21",
+    "duration": "10.0 秒",
+    "file": "tortoise-hare-rematch/videos/seg08b.mp4",
+    "drive": "https://drive.google.com/file/d/1oNzpR_NtXehmpbBs_k-lFPL_kNErpffX/view?usp=drivesdk",
+    "prompt": "Warm 2D picture-book children's fable animation, soft rounded shapes, gentle watercolor paper texture, warm golden sunlight, painterly rich backgrounds, 16:9 landscape, no text, no watermark. STRICT ASPECT RATIO LOCK: The final output video MUST be 16:9 landscape. All reference images - character sheets, keyframes, first-frame and last-frame images - MUST share this exact aspect ratio. NEVER mix aspect ratios. Keep every character exactly on-model with the attached sheets in all frames. RABBIT: A small fluffy white rabbit with tall upright ears (soft pink inner ears), big round amber eyes, a small pink nose, a fluffy round tail, wearing a small red scarf around its neck; bare pink-padded feet; expressive dark eyebrows; body slightly chubby and soft-rounded. TORTOISE: A small tortoise with a round domed olive-green shell with warm brown hexagonal scutes, sage-green head and short sturdy legs, gentle half-closed eyes with a calm smile, wearing a tiny straw hat tilted on its head; moves slowly and steadily, never in a hurry. FIRST FRAME: this image - rabbit's head lifting, eyes brightening. MOTION: The rabbit looks up with a relieved smile and turns toward the tortoise in the distance; the tortoise turns back with a gentle smile; warm sunlight washes over the forest clearing; a few leaves drift down in the golden light. CAMERA: slow pull-back to a wide shot of the clearing, both animals in frame, sun flare.\nLAST FRAME: match this image exactly - rabbit smiling with relief, tortoise smiling back gently, warm sunlight over the clearing. End card feel. SOUND: soft wind, distant birdsong. MUSIC: warm resolving melody, holding to a gentle close.",
+    "status": "complete",
+    "note": "提示词原文取自 tortoise-hare-rematch/gen_videos.py，生成时以 conversation-json 两段文本块连同角色 sheet 与首末帧关键帧图片提交。"
+  },
+  {
+    "title": "旧书店前史情感戏「呵气」30 秒",
+    "date": "2026-11-21",
+    "duration": "28.9 秒",
+    "file": "imagine_media/heqi-30s.mp4",
+    "drive": "https://drive.google.com/file/d/1SZJTIGrGEYyw1CfLFRfrCSNOhCmdzYdB/view?usp=drivesdk",
+    "prompt": "30秒旧书店前史情感戏「呵气」，真人写实电影感，35mm胶片颗粒，延续旧书店系列影调：整体偏冷、饱和度略降，画外窗外冷白冬日天光为主光，店内台灯暖光从机位后方透过玻璃在女主面部形成一层淡淡暖色辅光，暖黄与冷白柔和对比，女主眼中有清晰眼神光，雾气区域保持柔和灰白不发青。\n\n参考锁定：女主面部五官、黑色蓬松碎发严格结合，为同一人，浅驼色灯芯绒外套配灰绿格纹围巾，头发与肩上落有少量雪粒；背景为旧书店的木质书架与暖黄灯光，环境光影与散景虚化质感严格参考。店内深处虚化人影为男主，其发型、棕色灯芯绒外套与整体轮廓严格结合，为同一人，但全程处于焦外、保持虚化，只在书架前模糊可见，绝不清晰对焦。85mm定焦f/2.8浅景深，焦点全程锁定玻璃外女主靠近镜头一侧的眼睛，玻璃上的雾痕与店内男主均处于焦外但可辨识，画面左侧前景为两三本立放的旧书书脊完全虚焦、约占画面五分之一。\n\n镜头设定：机位在窗内隔着橱窗玻璃拍摄女主正面近景、略带四分之三角度，女主位于画面右侧三分线，视线始终投向画面左侧深处——即店内书架前那个模糊人影的位置（距窗约两米），绝不直视镜头。机位保持构图稳定但带自然的手持呼吸感轻微浮动与极缓前后微移，不做戏剧性推拉摇移。玻璃为较薄单层玻璃，无重影；雾气全部位于玻璃外侧，由女主轻缓呼吸维持，玻璃整体有一层薄雾、面部前方有更浓的局部雾痕。\n\n先（0-6秒）：雪粒在画面中缓缓落下，天色偏暗约下午四点。女主站在玻璃外，视线平静落在画左深处那个模糊人影身上，没有笑意也没有哀伤，是看了很多次的安静注视，头部完全静止；画内深处男主在书架前低头整理书、虚焦背影，每次呼气，玻璃上她嘴唇前方浮起一小团雾又慢慢变淡，雾气起落即节奏。\n\n随后（6-13秒）：画外传来男主一声很轻的笑、隔着玻璃带闷感，像读到书里某句忍不住笑出来；女主滞后约0.5秒，嘴角跟着极轻地向上动一下，随即意识到自己在笑，不到1秒内嘴角收回原位、眼神恢复平静；笑的一瞬呼吸短暂停顿、雾痕变淡，收住后呼吸恢复、雾痕重新浮起，其余部位全部静止。\n\n接着（13-20秒）：女主缓缓抬起右手，戴毛线手套的手指褪下一截露出食指指尖，将指尖贴在雾气上开始写字，动作很慢，第一笔完整、第二笔写到一半停住；手指停在玻璃上不动，视线从深处人影移到自己写下的反向笔画上停留片刻，面部保持静止，不皱眉不叹气。\n\n接着（20-26秒）：画内深处那个模糊人影似乎朝窗口方向转身，他的身体遮挡了店内台灯，一道暖色人影从女主脸上掠过、暖光短暂变暗随即恢复；女主在光影变化后约0.5秒反应，迅速用整个手掌横向抹过玻璃把未写完的字迹抹去——全段唯一快速动作，暴露出慌乱；抹完后她视线下垂落在画面下方不再看向店内，手掌离开玻璃缓缓垂下，被抹开的区域露出一块清晰玻璃，她的脸在这块区域里第一次完全清楚。\n\n最后（26-30秒）：女主依然低着视线，呼吸在慌乱后变得深而长，一次明显缓慢的呼气，雾气从嘴唇前方漫开逐渐覆盖被抹开的区域；她的脸在雾气后一点点模糊——先是嘴唇、然后鼻梁、最后眼睛，她没有抬头也没有离开，雾气完全覆盖时只剩一个冷暖交织的模糊轮廓，画面静止约1秒结束。\n\n声音设计：全段无配乐，保留窗外细微落雪声、远处偶尔车声、隔玻璃传出的闷闷翻书声与暖气低鸣；男主轻笑隔玻璃闷化、音量很低但清晰可辨；手掌抹过玻璃的摩擦声适当突出；最后一次长呼气近距离收录；雾气完全覆盖女主面部的瞬间加入一记极轻钢琴单音，余音延续约2秒淡出。本场全段无对白。禁止生成任何可见字幕、画面文字、LOGO或水印。",
+    "status": "complete",
+    "note": "30 秒完整分镜脚本原文；分三段生成，各段提示词见 pool-gallery-fast/heqi-seg1/2/3-prompt.txt。"
+  }
+]

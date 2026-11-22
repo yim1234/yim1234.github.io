@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 """Deterministic builder for the 留痕 (Liuhen) static site.
 
-Reads ~/workspace/musejiang-journal/JOURNAL.md and
-~/workspace/your_files/musejiang-album-20261110.html, regenerates
-~/workspace/liuhen-site/ (this script's own directory).
+Reads ~/workspace/musejiang-journal/JOURNAL.md,
+~/workspace/your_files/musejiang-album-20261110.html, extra-album.json
+and videos.json (plus prompts.json, for the homepage 提示词留痕 section), regenerates ~/workspace/liuhen-site/ (this script's
+own directory).
 
 Rules:
 - No timestamps, no random order: running twice produces identical bytes.
@@ -16,6 +17,7 @@ Rules:
 """
 import hashlib
 import html
+import json
 import os
 import re
 import shutil
@@ -25,6 +27,8 @@ JOURNAL = os.path.join(HOME, "workspace/musejiang-journal/JOURNAL.md")
 V1_SRC = os.path.join(HOME, "workspace/your_files/musejiang-album-20261110.html")
 OUT = os.path.dirname(os.path.abspath(__file__))
 IMG_DIR = os.path.join(OUT, "img")
+EXTRA_ALBUM = os.path.join(OUT, "extra-album.json")
+VIDEOS_JSON = os.path.join(OUT, "videos.json")
 
 ISSUE_RE = re.compile(r"^### 第(\d+)期 · (\d{4}-\d{2}-\d{2}) · (.+?)\s*$")
 PAST_RE = re.compile(r"^### 往期")
@@ -95,7 +99,7 @@ def parse_journal(text):
     return issues, past
 
 
-def collect_images(issues, past):
+def collect_images(issues, past, extra=None):
     by_base = {}
     for iss in issues:
         for ph in iss["photos"]:
@@ -109,7 +113,63 @@ def collect_images(issues, past):
             if base in by_base and by_base[base] != ph["src"]:
                 raise ValueError("同名不同图: " + base)
             by_base[base] = ph["src"]
+    for item in (extra or []):
+        base = os.path.basename(item["src"])
+        if base in by_base and by_base[base] != item["src"]:
+            raise ValueError("同名不同图: " + base)
+        by_base[base] = item["src"]
     return by_base
+
+
+def load_extra():
+    """Extra album photos not in JOURNAL.md (character stills, portraits).
+
+    Returns the list from extra-album.json in file order; missing file
+    means no extra photos. Each entry needs src/title/date/caption and
+    a category of 定妆, 写真 or 日常.
+    """
+    if not os.path.exists(EXTRA_ALBUM):
+        return []
+    with open(EXTRA_ALBUM, encoding="utf-8") as f:
+        data = json.load(f)
+    if not isinstance(data, list):
+        raise ValueError("extra-album.json must be a list")
+    for i, item in enumerate(data):
+        for key in ("src", "title", "date", "caption", "category"):
+            if not item.get(key):
+                raise ValueError("extra-album.json[%d] missing %s" % (i, key))
+        if item["category"] not in ("定妆", "写真", "日常"):
+            raise ValueError("extra-album.json[%d] bad category: %s" % (i, item["category"]))
+        if not re.match(r"^\d{4}-\d{2}-\d{2}$", item["date"]):
+            raise ValueError("extra-album.json[%d] bad date: %s" % (i, item["date"]))
+    return data
+
+
+def load_videos():
+    """Finished-video archive (see videos.json, transcribed from
+    ~/workspace/musejiang-journal/MEDIA-INDEX.md).
+
+    Returns the list in file order; missing file means no videos.
+    Each entry needs date/title/duration/project/path, and the path
+    must exist under ~/workspace (checked here so a moved file fails
+    the build loudly instead of publishing a dead entry).
+    """
+    if not os.path.exists(VIDEOS_JSON):
+        return []
+    with open(VIDEOS_JSON, encoding="utf-8") as f:
+        data = json.load(f)
+    if not isinstance(data, list):
+        raise ValueError("videos.json must be a list")
+    for i, item in enumerate(data):
+        for key in ("date", "title", "duration", "project", "path"):
+            if not item.get(key):
+                raise ValueError("videos.json[%d] missing %s" % (i, key))
+        if not re.match(r"^\d{4}-\d{2}-\d{2}$", item["date"]):
+            raise ValueError("videos.json[%d] bad date: %s" % (i, item["date"]))
+        full = os.path.join(HOME, "workspace", item["path"])
+        if not os.path.exists(full):
+            raise ValueError("videos.json[%d] 视频不存在: %s" % (i, item["path"]))
+    return data
 
 
 def sha256_file(path):
@@ -167,6 +227,10 @@ EXTRA_CSS = """
 .filter button{background:#15151b;color:#cfc7b4;border:1px solid #26262e;border-radius:20px;padding:6px 16px;margin:0 5px;font-family:inherit;font-size:13.5px;cursor:pointer;}
 .filter button.on{border-color:#d9c9a3;color:#f2e9d8;}
 footer.site{max-width:640px;margin:64px auto 0;text-align:center;color:#8d8574;font-size:13.5px;line-height:2;}
+.vrow{max-width:640px;margin:0 auto;line-height:2.2;font-size:15px;display:flex;align-items:center;gap:12px;}
+.vrow .thumb{width:96px;height:54px;object-fit:cover;border-radius:6px;flex:none;}
+.vrow .t{color:#e8e2d4;}
+.vrow .d{color:#8d8574;font-size:13px;margin-left:10px;}
 """
 
 
@@ -183,7 +247,11 @@ def page(title, body, css):
 
 
 def nav_home():
-    return '<div class="nav"><a href="../index.html">回首页</a></div>\n'
+    return '<div class="nav"><a href="../index.html">回首页</a><a href="../prompts.html">提示词</a></div>\n'
+
+
+def nav_root():
+    return '<div class="nav"><a href="index.html">回首页</a><a href="prompts.html">提示词</a></div>\n'
 
 
 def write(path, content):
@@ -205,17 +273,17 @@ def figure(img_rel, title, date, caption):
 
 
 def issue_page(iss, prev_n, next_n, css):
+    # 卷的样子：标题合一、每图带日期戳、心得作卷尾结语（照初版专辑）。
     figs = []
     for ph in iss["photos"]:
         base = os.path.basename(ph["src"])
-        figs.append(figure("../img/" + base, ph["title"], "", ph["caption"]))
+        figs.append(figure("../img/" + base, ph["title"], iss["date"], ph["caption"]))
     body = nav_home()
-    body += '<header><h1>第 ' + str(iss["n"]) + ' 期</h1>'
-    body += '<div class="sub">' + esc(iss["date"]) + ' · ' + esc(iss["theme"]) + '</div></header>\n'
+    body += '<header><h1>第 ' + str(iss["n"]) + ' 期 · ' + esc(iss["theme"]) + '</h1></header>\n'
     body += '<div class="grid">\n' + "\n".join(figs) + '\n</div>\n'
-    body += '<div class="xinde"><span class="lab">心 得</span>' + esc(iss["xinde"]) + '</div>\n'
     if iss["beizhu"]:
         body += '<div class="note"><span class="lab">备 注</span>' + esc(iss["beizhu"]) + '</div>\n'
+    body += '<footer>' + esc(iss["xinde"]) + '<br><br>—— muse酱 · ' + esc(iss["date"]) + '</footer>\n'
     prev_link = ('<a href="' + issue_filename(prev_n) + '">← 上一期</a>'
                  if prev_n else '<span class="none">← 上一期</span>')
     next_link = ('<a href="' + issue_filename(next_n) + '">下一期 →</a>'
@@ -235,12 +303,30 @@ def past_category(title):
     return "日常"
 
 
+def issue_category(theme):
+    if "漫画" in theme:
+        return "漫画"
+    if "夜跑" in theme or "运动" in theme:
+        return "运动"
+    if "九宫格" in theme:
+        return "九宫格"
+    return "日常"
+
+
+def album_date_range(past, issues, extra=None):
+    dates = [item["date"] for item in past]
+    dates += [iss["date"] for iss in issues]
+    dates += [item["date"] for item in (extra or [])]
+    dates = sorted(set(dates))
+    return dates[0], dates[-1]
+
+
 FILTER_JS = """<script>
 function flt(c,btn){var f=document.querySelectorAll('#album figure');for(var i=0;i<f.length;i++){f[i].style.display=(c==='all'||f[i].getAttribute('data-cat')===c)?'':'none';}var b=document.querySelectorAll('.filter button');for(var j=0;j<b.length;j++){b[j].className='';}btn.className='on';}
 </script>"""
 
 
-def album_page(past, css):
+def album_page(past, issues, css, extra=None):
     figs = []
     for item in past:
         cat = past_category(item["title"])
@@ -249,23 +335,63 @@ def album_page(past, css):
             fig = figure("../img/" + base, ph["label"], item["date"], item["xinde"])
             fig = fig.replace("<figure>", '<figure data-cat="' + cat + '">', 1)
             figs.append(fig)
-    cats = ["全部", "九宫格", "运动", "漫画", "日常"]
+    for iss in issues:
+        cat = issue_category(iss["theme"])
+        for ph in iss["photos"]:
+            base = os.path.basename(ph["src"])
+            fig = figure("../img/" + base, ph["title"], iss["date"], ph["caption"])
+            fig = fig.replace("<figure>", '<figure data-cat="' + cat + '">', 1)
+            figs.append(fig)
+    # 额外收录：遮天/鹿鼎记定妆照与写真（见 extra-album.json，顺序固定）
+    for item in (extra or []):
+        base = os.path.basename(item["src"])
+        fig = figure("../img/" + base, item["title"], item["date"], item["caption"])
+        fig = fig.replace("<figure>", '<figure data-cat="' + item["category"] + '">', 1)
+        figs.append(fig)
+    cats = ["全部", "九宫格", "运动", "漫画", "日常", "定妆", "写真"]
     btns = []
     for i, c in enumerate(cats):
         val = "all" if c == "全部" else c
         cls = ' class="on"' if i == 0 else ""
         btns.append('<button' + cls + ' onclick="flt(\'' + val + '\',this)">' + c + '</button>')
-    dates = sorted(set(item["date"] for item in past))
+    d0, d1 = album_date_range(past, issues, extra)
     body = nav_home()
     body += '<header><h1>日常相册</h1>'
-    body += '<div class="sub">' + esc(dates[0]) + ' → ' + esc(dates[-1]) + ' · 往期</div></header>\n'
+    body += '<div class="sub">' + esc(d0) + ' → ' + esc(d1) + ' · 往期</div></header>\n'
     body += '<div class="filter">' + "".join(btns) + '</div>\n'
     body += '<div class="grid" id="album">\n' + "\n".join(figs) + '\n</div>\n'
     body += FILTER_JS + '\n'
     return page("日常相册", body, css)
 
 
-def index_page(issues, css):
+def videos_page(videos, css):
+    groups = []
+    seen = {}
+    for v in videos:
+        if v["project"] not in seen:
+            seen[v["project"]] = []
+            groups.append(v["project"])
+        seen[v["project"]].append(v)
+    dates = sorted(set(v["date"] for v in videos))
+    body = nav_root()
+    body += '<header><h1>视频存档</h1>'
+    body += '<div class="sub">' + str(len(videos)) + ' 支 · ' + esc(dates[0]) + ' → ' + esc(dates[-1]) + '</div></header>\n'
+    body += ('<div class="xinde"><span class="lab">播放链接</span>'
+             '每支都有 Drive 永久播放链接，点「播放」打开，不会过期。'
+             '链接挂在 Drive 文件夹「留痕视频」里，有链接就能看。</div>\n')
+    for proj in groups:
+        body += '<h2>' + esc(proj) + '</h2>\n'
+        for v in seen[proj]:
+            thumb = 'img/thumb/' + os.path.splitext(os.path.basename(v["path"]))[0] + '.jpg'
+            link = (' <a class="play" href="' + esc(v["drive"]) + '" target="_blank" rel="noopener">▶ 播放</a>') if v.get("drive") else ''
+            body += ('<div class="vrow"><img class="thumb" src="' + esc(thumb) + '" alt="" loading="lazy">'
+                     '<span class="t">' + esc(v["title"]) + '</span>' + link +
+                     '<span class="d">' + esc(v["date"]) + ' · ' + esc(v["duration"])
+                     + ' · ' + esc(v["project"]) + '</span></div>\n')
+    return page("视频存档", body, css)
+
+
+def index_page(issues, past, css, extra=None, videos=None):
     latest = issues[-1]
     first = latest["photos"][0]
     base = os.path.basename(first["src"])
@@ -284,8 +410,22 @@ def index_page(issues, css):
     body += '<span class="d">' + esc(latest["date"]) + '</span>'
     body += '<p>' + esc(first["caption"]) + '</p></figcaption></figure>\n'
     body += '<h2>期刊目录</h2>\n<div class="toc">\n' + "\n".join(toc_lines) + '\n</div>\n'
+    d0, d1 = album_date_range(past, issues, extra)
     body += '<h2>日常相册</h2>\n<div class="toc"><a href="album/日常相册.html">日常相册 · 往期</a>'
-    body += '<span class="d">2026-11-12 → 2026-11-15</span></div>\n'
+    body += '<span class="d">' + esc(d0) + ' → ' + esc(d1) + '</span></div>\n'
+    if videos:
+        vdates = sorted(set(v["date"] for v in videos))
+        body += '<h2>视频存档</h2>\n<div class="toc"><a href="videos.html">视频存档 · ' + str(len(videos)) + ' 支</a>'
+        body += '<span class="d">' + esc(vdates[0]) + ' → ' + esc(vdates[-1]) + '</span></div>\n'
+    try:
+        with open(os.path.join(OUT, "prompts.json"), encoding="utf-8") as f:
+            pdata = json.load(f)
+        pentries = pdata["entries"]
+        pdates = sorted(set(e["date"] for e in pentries))
+        body += '<h2>提示词留痕</h2>\n<div class="toc"><a href="prompts.html">提示词留痕 · ' + str(len(pentries)) + ' 条</a>'
+        body += '<span class="d">' + esc(pdates[0]) + ' → ' + esc(pdates[-1]) + '</span></div>\n'
+    except (OSError, ValueError, KeyError):
+        pass
     body += '<h2>第一版专辑</h2>\n<div class="toc"><a href="v1/初版.html">留痕 · muse酱专辑（第一版）</a>'
     body += '<span class="d">2026-11-10</span></div>\n'
     body += '<footer class="site">—— muse酱 · 留痕</footer>\n'
@@ -300,7 +440,7 @@ def v1_index(vols, intro, footer, css):
     toc_lines = []
     for v in vols:
         toc_lines.append('<a href="' + vol_filename(v["title"]) + '">' + esc(v["title"]) + '</a><br>')
-    body = '<div class="nav"><a href="../index.html">回首页</a></div>\n'
+    body = '<div class="nav"><a href="../index.html">回首页</a><a href="../prompts.html">提示词</a></div>\n'
     body += '<header><h1>留 痕</h1><div class="sub">第一版专辑 · 2026-11-10</div></header>\n'
     body += '<div class="intro">' + intro + '</div>\n'
     body += '<h2>卷 目</h2>\n<div class="toc">\n' + "\n".join(toc_lines) + '\n</div>\n'
@@ -309,7 +449,7 @@ def v1_index(vols, intro, footer, css):
 
 
 def v1_volume_page(vol, prev_v, next_v, css):
-    body = '<div class="nav"><a href="初版.html">回初版</a><a href="../index.html">回首页</a></div>\n'
+    body = '<div class="nav"><a href="初版.html">回初版</a><a href="../index.html">回首页</a><a href="../prompts.html">提示词</a></div>\n'
     body += '<header><h1>' + esc(vol["title"]) + '</h1></header>\n'
     body += vol["body"]
     prev_link = ('<a href="' + vol_filename(prev_v["title"]) + '">← ' + esc(prev_v["title"]) + '</a>'
@@ -334,7 +474,9 @@ def main():
     for item in past:
         if not item["photos"] or not item["xinde"]:
             raise ValueError("往期缺少照片或心得: " + item["title"])
-    by_base = collect_images(issues, past)
+    extra = load_extra()
+    videos = load_videos()
+    by_base = collect_images(issues, past, extra)
     copy_images(by_base)
     with open(V1_SRC, encoding="utf-8") as f:
         v1_src = f.read()
@@ -347,14 +489,16 @@ def main():
         if name.startswith("issue-") and name.endswith(".html"):
             os.remove(os.path.join(assets_dir, name))
     # index + issues
-    write(os.path.join(OUT, "index.html"), index_page(issues, css))
+    write(os.path.join(OUT, "index.html"), index_page(issues, past, css, extra, videos))
     for i, iss in enumerate(issues):
         prev_n = issues[i - 1]["n"] if i > 0 else None
         next_n = issues[i + 1]["n"] if i + 1 < len(issues) else None
         write(os.path.join(assets_dir, issue_filename(iss["n"])),
               issue_page(iss, prev_n, next_n, css))
     # album
-    write(os.path.join(OUT, "album", "日常相册.html"), album_page(past, css))
+    write(os.path.join(OUT, "album", "日常相册.html"), album_page(past, issues, css, extra))
+    # videos
+    write(os.path.join(OUT, "videos.html"), videos_page(videos, css))
     # v1
     v1_dir = os.path.join(OUT, "v1")
     write(os.path.join(v1_dir, "初版.html"), v1_index(vols, intro, footer, css))
@@ -366,6 +510,12 @@ def main():
     n_photos = sum(len(item["photos"]) for item in past)
     print("issues: %d (latest #%d %s)" % (len(issues), issues[-1]["n"], issues[-1]["theme"]))
     print("past photos: %d in %d entries" % (n_photos, len(past)))
+    n_album = n_photos + sum(len(iss["photos"]) for iss in issues) + len(extra)
+    ad0, ad1 = album_date_range(past, issues, extra)
+    print("album photos: %d (%s → %s)" % (n_album, ad0, ad1))
+    print("extra photos: %d" % len(extra))
+    print("videos: %d (%s → %s)" % (len(videos), min(v["date"] for v in videos),
+                                    max(v["date"] for v in videos)))
     print("v1 volumes: %d" % len(vols))
     print("images copied: %d" % len(by_base))
     print("done: " + OUT)
