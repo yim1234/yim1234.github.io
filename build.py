@@ -355,6 +355,10 @@ footer.site{max-width:640px;margin:64px auto 0;text-align:center;color:#8d8574;f
 .vrow .thumb{width:96px;height:54px;object-fit:cover;border-radius:6px;flex:none;}
 .vrow .t{color:#e8e2d4;}
 .vrow .d{color:#8d8574;font-size:13px;margin-left:10px;}
+.lockbox{max-width:640px;margin:24px auto;padding:30px 20px;text-align:center;background:#15151b;border:1px solid #26262e;border-radius:10px;line-height:2;font-size:15px;color:#cfc7b4;}
+.lockbox input{background:#0f0f13;color:#f2e9d8;border:1px solid #4a4232;border-radius:6px;padding:8px 10px;font-size:15px;width:130px;text-align:center;margin:12px 6px 0;font-family:inherit;}
+.lockbox button{background:#d9c9a3;color:#15151b;border:0;border-radius:6px;padding:8px 18px;font-size:15px;cursor:pointer;font-family:inherit;}
+.lockerr{display:block;color:#d98a7a;font-size:13.5px;margin-top:8px;min-height:20px;}
 """
 
 
@@ -387,6 +391,32 @@ def issue_filename(n):
     return "issue-%03d.html" % n
 
 
+LOCK_JS = """<script>
+(function(){
+var boxes=document.querySelectorAll('.locked');
+for(var i=0;i<boxes.length;i++){
+(function(box){
+var btn=box.querySelector('button'),input=box.querySelector('input'),err=box.querySelector('.lockerr');
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function unlock(){
+var v=input.value.trim();
+if(v===box.getAttribute('data-pw')){
+var data=JSON.parse(box.querySelector('script[type="application/json"]').textContent);
+var grid=box.querySelector('.grid'),h='';
+for(var j=0;j<data.length;j++){var p=data[j];
+h+='<figure><a href="'+esc(p.src)+'"><img src="'+esc(p.src)+'" alt="'+esc(p.title)+'"></a><figcaption><span class="t">'+esc(p.title)+'</span><span class="d">'+esc(p.date)+'</span><p>'+esc(p.caption)+'</p></figcaption></figure>';}
+grid.innerHTML=h;grid.style.display='';box.querySelector('.lockbox').style.display='none';
+}else{err.textContent='不对，再试一次';input.select();}
+}
+btn.addEventListener('click',unlock);
+input.addEventListener('keydown',function(e){if(e.key==='Enter'){unlock();}});
+})(boxes[i]);
+}
+})();
+</script>
+"""
+
+
 def figure(img_rel, title, date, caption):
     out = '<figure><a href="' + img_rel + '"><img src="' + img_rel + '" alt="' + esc(title) + '"></a>'
     out += '<figcaption><span class="t">' + esc(title) + '</span>'
@@ -406,11 +436,20 @@ def issue_page(iss, prev_n, next_n, css, drive_by_base=None):
     body += '<header><h1>第 ' + str(iss["n"]) + ' 期 · ' + esc(iss["theme"]) + '</h1></header>\n'
     body += '<div class="grid">\n' + "\n".join(figs) + '\n</div>\n'
     if iss["extras_photos"]:
-        body += '<h2>当日其他照片</h2>\n<div class="grid">\n'
-        for ph in iss["extras_photos"]:
-            base = os.path.basename(ph["src"])
-            body += figure("../img/" + base, ph["title"], iss["date"], ph["caption"]) + '\n'
-        body += '</div>\n'
+        # 当日其他照片上锁：密码为本期日期月日四位（如 1122）；解锁前不加载图片。
+        pw = iss["date"][5:7] + iss["date"][8:10]
+        photos_json = json.dumps(
+            [{"src": "../img/" + os.path.basename(ph["src"]), "title": ph["title"],
+              "date": iss["date"], "caption": ph["caption"]} for ph in iss["extras_photos"]],
+            ensure_ascii=False).replace("<", "\\u003c")
+        body += '<h2>当日其他照片</h2>\n'
+        body += '<div class="locked" data-pw="' + pw + '">\n'
+        body += ('<div class="lockbox">🔒 当日其他照片已上锁，输入当日日期查看（如 1122）<br>'
+                 '<input type="text" inputmode="numeric" autocomplete="off" placeholder="月日，如 1122"> '
+                 '<button type="button">查看</button><span class="lockerr"></span></div>\n')
+        body += '<div class="grid" style="display:none"></div>\n'
+        body += '<script type="application/json">' + photos_json + '</script>\n</div>\n'
+        body += LOCK_JS
     if iss["extras_videos"]:
         body += '<h2>当日视频</h2>\n'
         for v in iss["extras_videos"]:
@@ -477,10 +516,16 @@ function flt(c,btn){var f=document.querySelectorAll('#album figure');for(var i=0
 
 def album_page(past, issues, css, extra=None):
     figs = []
+    seen = set()
+    # 额外收录（定妆/写真）里的图若已在某期当日其他里出现过，以额外收录版为准（保留定妆/写真分类），期页版跳过，避免同一张图在相册里出现两次。
+    extra_bases = {os.path.basename(item["src"]) for item in (extra or [])}
     for item in past:
         cat = past_category(item["title"])
         for ph in item["photos"]:
             base = os.path.basename(ph["src"])
+            if base in seen:
+                continue
+            seen.add(base)
             fig = figure("../img/" + base, ph["label"], item["date"], item["xinde"])
             fig = fig.replace("<figure>", '<figure data-cat="' + cat + '">', 1)
             figs.append(fig)
@@ -488,12 +533,18 @@ def album_page(past, issues, css, extra=None):
         cat = issue_category(iss["theme"])
         for ph in iss["photos"] + iss["extras_photos"]:
             base = os.path.basename(ph["src"])
+            if base in seen or base in extra_bases:
+                continue
+            seen.add(base)
             fig = figure("../img/" + base, ph["title"], iss["date"], ph["caption"])
             fig = fig.replace("<figure>", '<figure data-cat="' + cat + '">', 1)
             figs.append(fig)
     # 额外收录：遮天/鹿鼎记定妆照与写真（见 extra-album.json，顺序固定）
     for item in (extra or []):
         base = os.path.basename(item["src"])
+        if base in seen:
+            continue
+        seen.add(base)
         fig = figure("../img/" + base, item["title"], item["date"], item["caption"])
         fig = fig.replace("<figure>", '<figure data-cat="' + item["category"] + '">', 1)
         figs.append(fig)
@@ -717,7 +768,11 @@ def main():
     print("extras photos: %d, extras videos: %d, extras voice: %d" % (
         n_extras, sum(len(iss["extras_videos"]) for iss in issues),
         sum(len(iss["extras_voice"]) for iss in issues)))
-    n_album = n_photos + sum(len(iss["photos"]) for iss in issues) + n_extras + len(extra)
+    # 相册去重后计数（与 album_page 实际渲染的去重规则一致：同名只计一次）
+    album_bases = {os.path.basename(ph["src"]) for item in past for ph in item["photos"]}
+    album_bases |= {os.path.basename(ph["src"]) for iss in issues for ph in iss["photos"] + iss["extras_photos"]}
+    album_bases |= {os.path.basename(item["src"]) for item in extra}
+    n_album = len(album_bases)
     print("specials: %d" % len(specials))
     print("audio copied: %d" % len(audio_by_base))
     ad0, ad1 = album_date_range(past, issues, extra)

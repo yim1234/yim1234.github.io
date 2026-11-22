@@ -44,6 +44,10 @@ footer.site{max-width:640px;margin:64px auto 0;text-align:center;color:#8d8574;f
 .vrow .thumb{width:96px;height:54px;object-fit:cover;border-radius:6px;flex:none;}
 .vrow .t{color:#e8e2d4;}
 .vrow .d{color:#8d8574;font-size:13px;margin-left:10px;}
+.lockbox{max-width:640px;margin:24px auto;padding:30px 20px;text-align:center;background:#15151b;border:1px solid #26262e;border-radius:10px;line-height:2;font-size:15px;color:#cfc7b4;}
+.lockbox input{background:#0f0f13;color:#f2e9d8;border:1px solid #4a4232;border-radius:6px;padding:8px 10px;font-size:15px;width:130px;text-align:center;margin:12px 6px 0;font-family:inherit;}
+.lockbox button{background:#d9c9a3;color:#15151b;border:0;border-radius:6px;padding:8px 18px;font-size:15px;cursor:pointer;font-family:inherit;}
+.lockerr{display:block;color:#d98a7a;font-size:13.5px;margin-top:8px;min-height:20px;}
 
 </style></head>
 <body>
@@ -54,6 +58,37 @@ footer.site{max-width:640px;margin:64px auto 0;text-align:center;color:#8d8574;f
 <figure><a href="../img/media-generation-journal-issue4-coffee-latteart-0-015ea43d-29f0-4486-8ed1-9bee2f0e1974.webp"><img src="../img/media-generation-journal-issue4-coffee-latteart-0-015ea43d-29f0-4486-8ed1-9bee2f0e1974.webp" alt="吧台看拉花"></a><figcaption><span class="t">吧台看拉花</span><span class="d">2026-11-17</span><p>牛奶倒进杯里，拉花一圈圈晕开，笑得有点藏不住。</p></figcaption></figure>
 <figure><a href="../img/media-generation-journal-issue4-coffee-reading-0-6c1a3152-798c-46c8-9ea6-d7f44544e308.webp"><img src="../img/media-generation-journal-issue4-coffee-reading-0-6c1a3152-798c-46c8-9ea6-d7f44544e308.webp" alt="圆桌读书"></a><figcaption><span class="t">圆桌读书</span><span class="d">2026-11-17</span><p>书翻到一半，咖啡还冒着热气，桌上那朵粉色的花开得正好。</p></figcaption></figure>
 </div>
+<h2>当日其他照片</h2>
+<div class="locked" data-pw="1117">
+<div class="lockbox">🔒 当日其他照片已上锁，输入当日日期查看（如 1122）<br><input type="text" inputmode="numeric" autocomplete="off" placeholder="月日，如 1122"> <button type="button">查看</button><span class="lockerr"></span></div>
+<div class="grid" style="display:none"></div>
+<script type="application/json">[{"src": "../img/media-generation-portrait-macro-closeup-flipped.webp", "title": "写真 · 微距特写", "date": "2026-11-17", "caption": "微距贴脸，左眼独焦，叶影光斑洒在奶油肌肤上；收的是翻转之后定稿的那一版。"}]</script>
+</div>
+<script>
+(function(){
+var boxes=document.querySelectorAll('.locked');
+for(var i=0;i<boxes.length;i++){
+(function(box){
+var btn=box.querySelector('button'),input=box.querySelector('input'),err=box.querySelector('.lockerr');
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function unlock(){
+var v=input.value.trim();
+if(v===box.getAttribute('data-pw')){
+var data=JSON.parse(box.querySelector('script[type="application/json"]').textContent);
+var grid=box.querySelector('.grid'),h='';
+for(var j=0;j<data.length;j++){var p=data[j];
+h+='<figure><a href="'+esc(p.src)+'"><img src="'+esc(p.src)+'" alt="'+esc(p.title)+'"></a><figcaption><span class="t">'+esc(p.title)+'</span><span class="d">'+esc(p.date)+'</span><p>'+esc(p.caption)+'</p></figcaption></figure>';}
+grid.innerHTML=h;grid.style.display='';box.querySelector('.lockbox').style.display='none';
+}else{err.textContent='不对，再试一次';input.select();}
+}
+btn.addEventListener('click',unlock);
+input.addEventListener('keydown',function(e){if(e.key==='Enter'){unlock();}});
+})(boxes[i]);
+}
+})();
+</script>
+<h2>当日视频</h2>
+<div class="vrow"><img class="thumb" src="../img/thumb/elderly-story-ep03-nainai-fengrenji-zephyr.jpg" alt="" loading="lazy"><span class="t">老年故事会第 3 集《奶奶的缝纫机》</span> <a class="play" href="https://drive.google.com/file/d/1OAtxwE3eQfbjbcPCeuPIekeQB83NsigJ/view?usp=drivesdk" target="_blank" rel="noopener">▶ 播放</a><span class="d">2026-11-17 · 时长：4 分 0 秒</span></div>
 <div class="note"><span class="lab">备 注</span>三张脸都对上锚图，米色针织衫三张一致；第三张书页上的字是模糊小字，细看不清，不算乱码，照实留着。</div>
 <footer>今天在咖啡店坐了一个上午。窗边的阳光暖暖的，拿铁捧在手里，看着拉花一点点晕开，心里也跟着软下来。读了会儿书，咖啡还没凉，花还在桌上开着——这样的慢上午，真想多留几个。<br><br>—— muse酱 · 2026-11-17</footer>
 <div class="pager"><a href="issue-003.html">← 上一期</a><a href="issue-005.html">下一期 →</a></div>
